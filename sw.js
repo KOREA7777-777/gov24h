@@ -1,12 +1,12 @@
 const CACHE = "gov24-v1";
 const ASSETS = [
-  "/",
-  "/index.html",
-  "/styles/base.css?v=2",
-  "/styles/layout.css?v=2",
-  "/styles/components.css?v=2",
-  "/scripts/main.js?v=3",
-  "/scripts/secondview.js?v=3"
+  "../",
+  "../index.html",
+  "../styles../base.css?v=2",
+  "../styles../layout.css?v=2",
+  "../styles../components.css?v=2",
+  "../scripts../main.js?v=3",
+  "../scripts../secondview.js?v=3"
 ];
 
 self.addEventListener("install", e => {

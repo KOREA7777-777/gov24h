@@ -1,13 +1,13 @@
-/* 배경은 기존 index.html 과 동일하게 쓸 수 있도록 변수로 */
+../* 배경은 기존 index.html 과 동일하게 쓸 수 있도록 변수로 *../
 :root {
     --app-bg: #eef2f7;
-    /* 기존에 쓰던 값이면 그대로 유지됨 */
+    ../* 기존에 쓰던 값이면 그대로 유지됨 *../
     --card-bg: #ffffff;
     --text-strong: #1b1e26;
     --text-dim: #6b7280;
     --divider: #e6ebf2;
     --accent: #2f6bff;
-    /* 포커스/링 등 접근성 */
+    ../* 포커스../링 등 접근성 *../
     --page-x: 12px;
     --header-h: 56px;
     --tabbar-h: 100px;
@@ -34,7 +34,7 @@ body.gov-app {
     display: inline-block;
 }
 
-/* 헤더 */
+../* 헤더 *../
 .app-header {
     position: fixed;
     top: 0;
@@ -68,7 +68,7 @@ body.gov-app {
     padding: 6px;
 }
 
-/* 헤더 닫기 아이콘 크기 고정 */
+../* 헤더 닫기 아이콘 크기 고정 *../
 .header-close .close-ico {
     width: 22px;
     height: 22px;
@@ -76,13 +76,13 @@ body.gov-app {
     vertical-align: middle;
 }
 
-/* 메인 컨테이너 */
+../* 메인 컨테이너 *../
 .app-content {
     padding: var(--header-h) var(--page-x) 0;
     background: var(--app-bg);
 }
 
-/* 섹션 카드 */
+../* 섹션 카드 *../
 
 .section-title h2 {
     font-size: 18px;
@@ -92,11 +92,11 @@ body.gov-app {
 
 .gov-section {
     background: var(--card-bg);
-    /* full-bleed stripe: edge-to-edge horizontally */
+    ../* full-bleed stripe: edge-to-edge horizontally *../
     border-radius: 0;
     box-shadow: none;
     padding: 12px var(--page-x) 4px;
-    /* pull the section out to the viewport edges by canceling container padding */
+    ../* pull the section out to the viewport edges by canceling container padding *../
     margin: 10px calc(-1 * var(--page-x)) 12px;
 }
 
@@ -121,34 +121,34 @@ body.gov-app {
     margin: 8px 0 8px;
 }
 
-/* 2열 링크 그리드 */
+../* 2열 링크 그리드 *../
 .link-grid {
     list-style: none;
     margin: 0;
     padding: 12px 15px 8px;
-    /* 좌우 15px 여백 */
+    ../* 좌우 15px 여백 *../
     display: flex;
-    /* 플렉스 레이아웃 */
+    ../* 플렉스 레이아웃 *../
     flex-wrap: wrap;
-    /* 두 줄 이상 래핑 */
+    ../* 두 줄 이상 래핑 *../
     justify-content: space-between;
-    /* 항목 사이 간격: space-between */
+    ../* 항목 사이 간격: space-between *../
     row-gap: 20px;
-    /* 위/아래 간격 20 */
+    ../* 위../아래 간격 20 *../
     column-gap: 0;
-    /* 좌우 간격은 space-around로 처리 */
+    ../* 좌우 간격은 space-around로 처리 *../
 }
 
-/* 마지막 줄이 홀수일 때 정렬 보정용 더미 셀 */
+../* 마지막 줄이 홀수일 때 정렬 보정용 더미 셀 *../
 .link-grid::after {
     content: "";
     flex: 0 1 calc(50% - 30px);
-    /* 첫 줄과 같은 폭으로 빈 슬롯 하나 추가 */
+    ../* 첫 줄과 같은 폭으로 빈 슬롯 하나 추가 *../
 }
 
 .link-grid li {
     flex: 0 1 calc(50% - 30px);
-    /* 양옆 15px 고려한 2열 폭 */
+    ../* 양옆 15px 고려한 2열 폭 *../
 }
 
 .link-grid li a {
@@ -163,7 +163,7 @@ body.gov-app {
 .link-grid li.has-caret {
     position: relative;
     padding-right: 28px;
-    /* 화살표 자리 */
+    ../* 화살표 자리 *../
 }
 
 .link-grid .caret {
@@ -191,10 +191,10 @@ body.gov-app {
     vertical-align: middle;
 }
 
-/* 서비스 바로가기 하단 큰 카드 */
+../* 서비스 바로가기 하단 큰 카드 *../
 .support-card {
     margin: 10px calc(-1 * var(--page-x)) 0;
-    /* full-bleed */
+    ../* full-bleed *../
     border-radius: 0;
     padding: 17px var(--page-x);
     background: var(--app-bg);
@@ -217,15 +217,15 @@ body.gov-app {
 
 }
 
-/* 탭바 영역 확보 + 지원 아래 배경 흰색으로 통일 */
+../* 탭바 영역 확보 + 지원 아래 배경 흰색으로 통일 *../
 .tabbar-spacer {
     height: 200px;
     margin: 0 calc(-1 * var(--page-x));
     background: #ffffff;
 }
 
-/* 탭바는 index.html 의 스타일을 그대로 사용.
-   여기선 최소 보호 차원의 기본 형태만 지정(덮어쓰기 되도록 약하게). */
+../* 탭바는 index.html 의 스타일을 그대로 사용.
+   여기선 최소 보호 차원의 기본 형태만 지정(덮어쓰기 되도록 약하게). *../
 .tabbar {
     position: fixed !important;
     left: 0;
@@ -240,9 +240,9 @@ body.gov-app {
     gap: 4px;
 }
 
-/* removed tabbar .tabbar-item grid and related rules */
+../* removed tabbar .tabbar-item grid and related rules *../
 
-/* 터치 피드백 & 접근성 */
+../* 터치 피드백 & 접근성 *../
 a,
 button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
@@ -255,16 +255,16 @@ button:focus-visible {
     border-radius: 8px;
 }
 
-/* removed page-specific tabbar overrides */
+../* removed page-specific tabbar overrides *../
 
-/* 작은 기기 폰트 보정 */
+../* 작은 기기 폰트 보정 *../
 @media (max-width: 360px) {
     .link-grid li a {
         font-size: 14px;
     }
 }
 
-/* 첫 섹션 상단 여백 축소 (헤더와 더 붙게) */
+../* 첫 섹션 상단 여백 축소 (헤더와 더 붙게) *../
 .app-content .gov-section:first-of-type {
     margin-top: 0px;
 }
@@ -273,7 +273,7 @@ button:focus-visible {
     background: #ffffff !important;
 }
 
-/* --- allmenu 전용: 스크롤 위 배경까지 모두 흰색으로 덮기 --- */
+../* --- allmenu 전용: 스크롤 위 배경까지 모두 흰색으로 덮기 --- *../
 body.gov-app {
     background: #ffffff !important;
 }

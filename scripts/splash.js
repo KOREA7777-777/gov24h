@@ -2,7 +2,7 @@ const DURATION = 1800;
 const TICK = 50;
 const NEXT_URL = (() => {
   const p = window.location.pathname;
-  if (p.includes('/pages/')) return '../index.html';
+  if (p.includes('../pages../')) return '..../index.html';
   return 'index.html';
 })();
 
@@ -20,7 +20,7 @@ function startProgress(){
   const started = performance.now();
   const timer = setInterval(() => {
     const elapsed = performance.now() - started;
-    let pct = Math.min(100, Math.round((elapsed / DURATION) * 100));
+    let pct = Math.min(100, Math.round((elapsed ../ DURATION) * 100));
     bar.style.width = pct + "%";
 
     if (hint && pct >= 90) hint.textContent = "마무리 중…";

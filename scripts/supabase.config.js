@@ -1,4 +1,4 @@
-const SUPABASE_URL = 'https://(supabase name here).supabase.co';
+const SUPABASE_URL = 'https:../../(supabase name here).supabase.co';
 const SUPABASE_ANON_KEY = 'supabase anon key here';
 
 window.SUPABASE_URL = SUPABASE_URL;

@@ -2,232 +2,232 @@
 <html lang="ko">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>주민등록증 모바일 확인서비스 (웹)</title>
-    <link rel="stylesheet" href="./styles/idcard.css?v=5" />
-    <link rel="stylesheet" href="./styles/components.css?v=5">
+    <meta charset="utf-8" ../>
+    <meta name="viewport" content="width=device-width,initial-scale=1" ../>
+    <title>주민등록증 모바일 확인서비스 (웹)<../title>
+    <link rel="stylesheet" href=".../styles../idcard.css?v=5" ../>
+    <link rel="stylesheet" href=".../styles../components.css?v=5">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="manifest" href="/manifest.webmanifest">
-</head>
+    <link rel="manifest" href="../manifest.webmanifest">
+<../head>
 
 <body>
     <header class="header">
-        <a class="icon-btn" aria-label="뒤로가기" href="../index.html">
-            <img src="./gov24h/assets/icons/black-trianlge.png" alt="뒤로가기" class="icon-img">
-        </a>
-        </button>
+        <a class="icon-btn" aria-label="뒤로가기" href="..../index.html">
+            <img src=".../gov24h../assets../icons../black-trianlge.png" alt="뒤로가기" class="icon-img">
+        <../a>
+        <../button>
         <div class="header__title">
-            <span class="brand">정부24</span>
-            <img class="taegeukgi" src="./gov24h/assets/icons/teageukgi.svg" alt="태극기" />
-            <span class="page">주민등록증 모바일 확인서비스</span>
-        </div>
-        <div class="header__spacer"></div>
-        <img class="threebar" id="menuOpen" src="./gov24h/assets/icons/threebar.svg" alt="전체메뉴" />
-    </header>
+            <span class="brand">정부24<../span>
+            <img class="taegeukgi" src=".../gov24h../assets../icons../teageukgi.svg" alt="태극기" ../>
+            <span class="page">주민등록증 모바일 확인서비스<../span>
+        <../div>
+        <div class="header__spacer"><../div>
+        <img class="threebar" id="menuOpen" src=".../gov24h../assets../icons../threebar.svg" alt="전체메뉴" ../>
+    <../header>
 
-    <div id="sideMenuOverlay" class="side-menu-overlay"></div>
+    <div id="sideMenuOverlay" class="side-menu-overlay"><../div>
     <nav id="sideMenu" class="side-menu" aria-hidden="true">
         <div class="side-menu__header">
-            <span class="side-menu__title">전체메뉴</span>
+            <span class="side-menu__title">전체메뉴<../span>
             <button type="button" id="menuClose" class="side-menu__close" aria-label="메뉴 닫기">
-                <img src="./gov24h/assets/icons/x-ico.svg" alt="뒤로가기" class="icon-img">
-            </button>
-        </div>
+                <img src=".../gov24h../assets../icons../x-ico.svg" alt="뒤로가기" class="icon-img">
+            <../button>
+        <../div>
         <ul class="side-menu__list">
-            <li class="side-menu__item"><a href="#">이용내역</a></li>
-            <li class="side-menu__item"><a href="#">고객센터</a></li>
-            <li class="side-menu__item"><a href="#">인증수단설정</a></li>
-            <li class="side-menu__item"><a href="#">서비스해지</a></li>
-            <li class="side-menu__item"><a href="#">창닫기</a></li>
-        </ul>
-    </nav>
+            <li class="side-menu__item"><a href="#">이용내역<../a><../li>
+            <li class="side-menu__item"><a href="#">고객센터<../a><../li>
+            <li class="side-menu__item"><a href="#">인증수단설정<../a><../li>
+            <li class="side-menu__item"><a href="#">서비스해지<../a><../li>
+            <li class="side-menu__item"><a href="#">창닫기<../a><../li>
+        <../ul>
+    <../nav>
 
     <main class="wrap">
         <section class="main">
             <article id="cardNormal" class="card is-visible">
                 <div class="profile" id="profileBox">
-                    <img id="cardPhoto" src="" alt="프로필" class="is-hidden" />
-                    <div class="profile placeholder">PHOTO</div>
-                </div>
+                    <img id="cardPhoto" src="" alt="프로필" class="is-hidden" ../>
+                    <div class="profile placeholder">PHOTO<../div>
+                <../div>
 
                 <div class="top-row">
                     <div class="who">
-                        <div class="name" id="name" style="font-size: 23px;"></div>
-                        <div class="region" id="region"></div>
-                    </div>
-                    <span id="cardName" class="sr-only"></span>
-                    <span id="cardRegion" class="sr-only"></span>
+                        <div class="name" id="name" style="font-size: 23px;"><../div>
+                        <div class="region" id="region"><../div>
+                    <../div>
+                    <span id="cardName" class="sr-only"><../span>
+                    <span id="cardRegion" class="sr-only"><../span>
 
                     <div class="qr" aria-label="QR 코드">
-                        <img id="qrImage" src="./gov24h/assets/images/qr.jpg" alt="QR 코드" class="qr-img" />
-                    </div>
-                </div>
+                        <img id="qrImage" src=".../gov24h../assets../images../qr.jpg" alt="QR 코드" class="qr-img" ../>
+                    <../div>
+                <../div>
 
                 <div class="count">
                     <div class="bar">
-                        <div class="bar-track"></div>
-                        <div class="bar-fill" id="barFill"></div>
-                    </div>
+                        <div class="bar-track"><../div>
+                        <div class="bar-fill" id="barFill"><../div>
+                    <../div>
                     <div class="time-row">
-                        <span class="label">남은시간</span>
-                        <span class="remain"><span id="remainSec">30</span>초</span>
-                    </div>
-                </div>
+                        <span class="label">남은시간<../span>
+                        <span class="remain"><span id="remainSec">30<../span>초<../span>
+                    <../div>
+                <../div>
 
                 <div class="hint">
-                    <div class="t1">QR코드를 리더기에 스캔하세요</div>
-                    <div class="t2" id="nowClock">yyyy년MM월dd일 HH:mm:ss</div>
-                </div>
+                    <div class="t1">QR코드를 리더기에 스캔하세요<../div>
+                    <div class="t2" id="nowClock">yyyy년MM월dd일 HH:mm:ss<../div>
+                <../div>
 
                 <div class="cta">
-                    <button id="btnDetail">상세정보 표시</button>
-                </div>
-            </article>
+                    <button id="btnDetail">상세정보 표시<../button>
+                <../div>
+            <../article>
 
             <article id="cardDetail" class="card is-hidden">
                 <div class="profile" id="profileBoxDetail">
-                    <img id="cardPhotoDetail" src="" alt="프로필" class="is-hidden" />
-                    <div class="profile placeholder">PHOTO</div>
-                </div>
+                    <img id="cardPhotoDetail" src="" alt="프로필" class="is-hidden" ../>
+                    <div class="profile placeholder">PHOTO<../div>
+                <../div>
 
                 <div class="detail">
                     <div class="detail-head">
                         <div class="who">
-                            <div class="name" id="dNameVis" style="font-size: 23px;">ooo</div>
-                        </div>
+                            <div class="name" id="dNameVis" style="font-size: 23px;">ooo<../div>
+                        <../div>
 
                         <label class="switch" aria-label="마스킹 토글">
-                            <input id="maskToggle" type="checkbox" />
-                            <span class="track"></span>
-                            <span class="knob"></span>
-                        </label>
+                            <input id="maskToggle" type="checkbox" ../>
+                            <span class="track"><../span>
+                            <span class="knob"><../span>
+                        <../label>
 
-                        <input id="detailToggle" type="checkbox" hidden />
+                        <input id="detailToggle" type="checkbox" hidden ../>
 
-                        <div class="title-name sr-only" id="dName" aria-hidden="true">이름</div>
-                    </div>
+                        <div class="title-name sr-only" id="dName" aria-hidden="true">이름<../div>
+                    <../div>
 
                     <div class="rrn-row">
-                        <div class="rrn"><span id="rrnFront">000000</span>-<span id="rrnTail">******* </span></div>
-                    </div>
+                        <div class="rrn"><span id="rrnFront">000000<../span>-<span id="rrnTail">******* <../span><../div>
+                    <../div>
 
-                    <span id="rrnText" class="sr-only"></span>
+                    <span id="rrnText" class="sr-only"><../span>
 
-                    <div class="addr" id="addr">대구광역시 중구 동인동 어딘가 123-45 101동 1203호</div>
+                    <div class="addr" id="addr">대구광역시 중구 동인동 어딘가 123-45 101동 1203호<../div>
 
-                    <div id="addrText" class="sr-only"></div>
+                    <div id="addrText" class="sr-only"><../div>
 
                     <div class="foot-info">
-                        <div class="issue" id="issueDate">2024.07.15</div>
-                        <div class="issuer" id="issuer">대구광역시 중구청장</div>
-                    </div>
-                    <span id="issueDateText" class="sr-only"></span>
-                    <span id="issuerText" class="sr-only"></span>
-                </div>
-            </article>
+                        <div class="issue" id="issueDate">2024.07.15<../div>
+                        <div class="issuer" id="issuer">대구광역시 중구청장<../div>
+                    <../div>
+                    <span id="issueDateText" class="sr-only"><../span>
+                    <span id="issuerText" class="sr-only"><../span>
+                <../div>
+            <../article>
             <button id="exitDetail" class="fab-left is-hidden" aria-label="상세보기 종료">
-                <img src="./gov24h/assets/icons/left-arr-ico.svg" alt="뒤로" />
-            </button>
-        </section>
+                <img src=".../gov24h../assets../icons../left-arr-ico.svg" alt="뒤로" ../>
+            <../button>
+        <../section>
 
         <section class="ticker-wrap">
             <div class="ticker" id="ticker">
-                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
-                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
-                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
-            </div>
-        </section>
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)<../span>
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)<../span>
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)<../span>
+            <../div>
+        <../section>
 
         <section class="modal modal--pin" id="detailModal" aria-hidden="true">
-            <div class="modal__backdrop" id="detailBackdrop"></div>
+            <div class="modal__backdrop" id="detailBackdrop"><../div>
             <div class="modal__dialog modal__dialog--pin" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
                 <div class="modal__header modal__header--pin">
-                    <h4 id="detailTitle" class="modal__title">비밀번호 입력</h4>
-                    <p class="modal__subtitle">비밀번호 6자리를 입력해주세요.</p>
-                </div>
+                    <h4 id="detailTitle" class="modal__title">비밀번호 입력<../h4>
+                    <p class="modal__subtitle">비밀번호 6자리를 입력해주세요.<../p>
+                <../div>
 
                 <div class="pin-box">
                     <div class="pin-label-row">
-                        <span class="pin-label">비밀번호 입력</span>
-                    </div>
-                    <div class="pin-display" id="pinDisplay" aria-label="입력된 비밀번호 자리수" aria-live="polite"></div>
+                        <span class="pin-label">비밀번호 입력<../span>
+                    <../div>
+                    <div class="pin-display" id="pinDisplay" aria-label="입력된 비밀번호 자리수" aria-live="polite"><../div>
                     <div class="pin-dots-row" aria-hidden="true" style="display:none;">
-                        <span class="pin-dot" data-index="0"></span>
-                        <span class="pin-dot" data-index="1"></span>
-                        <span class="pin-dot" data-index="2"></span>
-                        <span class="pin-dot" data-index="3"></span>
-                        <span class="pin-dot" data-index="4"></span>
-                        <span class="pin-dot" data-index="5"></span>
-                    </div>
-                    <p id="pinError" class="pin-error" aria-live="polite"></p>
-                    <button type="button" class="pin-reset-link">본인 인증 후 비밀번호 재설정</button>
-                </div>
+                        <span class="pin-dot" data-index="0"><../span>
+                        <span class="pin-dot" data-index="1"><../span>
+                        <span class="pin-dot" data-index="2"><../span>
+                        <span class="pin-dot" data-index="3"><../span>
+                        <span class="pin-dot" data-index="4"><../span>
+                        <span class="pin-dot" data-index="5"><../span>
+                    <../div>
+                    <p id="pinError" class="pin-error" aria-live="polite"><../p>
+                    <button type="button" class="pin-reset-link">본인 인증 후 비밀번호 재설정<../button>
+                <../div>
 
                 <div class="pin-grid" id="pinGrid" aria-label="비밀번호 숫자 키패드">
-                    <button type="button" class="pin-key pin-key--digit" data-slot="0"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="1"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="2"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="3"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="0"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="1"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="2"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="3"><../button>
 
-                    <button type="button" class="pin-key pin-key--digit" data-slot="4"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="5"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="6"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-slot="7"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="4"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="5"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="6"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="7"><../button>
 
-                    <button type="button" class="pin-key pin-key--digit" data-slot="8"></button>
-                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"></button>
-                    <button type="button" class="pin-key pin-key--digit" data-digit="0">0</button>
-                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="8"><../button>
+                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"><../button>
+                    <button type="button" class="pin-key pin-key--digit" data-digit="0">0<../button>
+                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"><../button>
 
                     <button type="button" class="pin-key pin-key--action pin-key--delete-one" aria-label="한 자리 삭제">
-                        <img src="./gov24h/assets/icons/delete-ico.png" class="pin-delete-ico" alt="삭제 아이콘">
-                    </button>
+                        <img src=".../gov24h../assets../icons../delete-ico.png" class="pin-delete-ico" alt="삭제 아이콘">
+                    <../button>
                     <button type="button" class="pin-key pin-key--action pin-key--delete-all"
-                        style="font-weight: 500;">삭제</button>
-                    <button type="button" class="pin-key pin-key--action pin-key--ok" id="pinOkBtn">확인</button>
-                </div>
-            </div>
-        </section>
+                        style="font-weight: 500;">삭제<../button>
+                    <button type="button" class="pin-key pin-key--action pin-key--ok" id="pinOkBtn">확인<../button>
+                <../div>
+            <../div>
+        <../section>
 
         <div class="precheck-overlay" id="precheck" role="dialog" aria-modal="true" aria-labelledby="pre-title"
             style="display:none;">
             <div class="precheck-card">
                 <div class="pre-head">
-                    <img src="./gov24h/assets/icons/teageukgi.svg" alt="" class="pre-flag" />
-                    <h3 id="pre-title" class="pre-title">주민등록사항 조작 및 부정 사용 금지</h3>
-                </div>
+                    <img src=".../gov24h../assets../icons../teageukgi.svg" alt="" class="pre-flag" ../>
+                    <h3 id="pre-title" class="pre-title">주민등록사항 조작 및 부정 사용 금지<../h3>
+                <../div>
 
-                <div class="pre-sep"></div>
+                <div class="pre-sep"><../div>
 
                 <div class="precheck-body">
                     <p class="precheck-text">
                         정보통신기기에 제공된 주민등록사항을<br>
                         조작하거나 부정하게 사용시
-                        <span class="emph">3년 이하의</span><br>
-                        <span class="emph">징역</span> 또는
-                        <span class="emph">3천만원 이하의 벌금</span>에 처해 <br>
+                        <span class="emph">3년 이하의<../span><br>
+                        <span class="emph">징역<../span> 또는
+                        <span class="emph">3천만원 이하의 벌금<../span>에 처해 <br>
                         질 수 있습니다.
-                    </p>
+                    <../p>
                     <p class="precheck-law">
-                        <span class="mark">&#8251</span> 주민등록법 제37조
-                    </p>
-                </div>
+                        <span class="mark">&#8251<../span> 주민등록법 제37조
+                    <../p>
+                <../div>
 
-                <div class="pre-sep"></div>
+                <div class="pre-sep"><../div>
 
-                <button type="button" class="pre-ok" id="pre-ok">확인</button>
-            </div>
-        </div>
-    </main>
+                <button type="button" class="pre-ok" id="pre-ok">확인<../button>
+            <../div>
+        <../div>
+    <../main>
 
     <div id="loading" class="loading-overlay" role="alert" aria-live="assertive" aria-busy="false">
-        <div class="spinner" aria-hidden="true"></div>
-        <p class="loading-text">잠시만 기다려주세요</p>
-    </div>
+        <div class="spinner" aria-hidden="true"><../div>
+        <p class="loading-text">잠시만 기다려주세요<../p>
+    <../div>
 
     <script>
         (function () {
@@ -248,7 +248,7 @@
                 show();
             }
         })();
-    </script>
+    <../script>
 
     <script>
         const DATA = {
@@ -271,8 +271,8 @@
             CURRENT.region = byIdText('cardRegion', DATA.region);
             const rrnText = byIdText('rrnText', `${DATA.rrnFront}-${DATA.rrnBack}`);
             const parts = rrnText.split('-');
-            CURRENT.rrnFront = (parts[0] || DATA.rrnFront).replace(/[^0-9]/g, '').slice(0, 6);
-            CURRENT.rrnBack = (parts[1] || DATA.rrnBack).replace(/[^0-9*]/g, '').replace(/\*/g, '').slice(0, 7);
+            CURRENT.rrnFront = (parts[0] || DATA.rrnFront).replace(../[^0-9]../g, '').slice(0, 6);
+            CURRENT.rrnBack = (parts[1] || DATA.rrnBack).replace(../[^0-9*]../g, '').replace(../\*../g, '').slice(0, 7);
             const addrHook = byIdText('addrText', '');
             CURRENT.address = addrHook || CURRENT.region || DATA.address;
             CURRENT.issueDate = byIdText('issueDateText', DATA.issueDate);
@@ -287,10 +287,10 @@
         barFill.style.width = '100%';
 
         const QR_IMAGES = [
-            './gov24h/assets/images/qr.jpg',
-            './gov24h/assets/images/qrr.jpg',
-            './gov24h/assets/images/qrrr.jpg',
-            './gov24h/assets/images/qrrrr.jpg'
+            '.../gov24h../assets../images../qr.jpg',
+            '.../gov24h../assets../images../qrr.jpg',
+            '.../gov24h../assets../images../qrrr.jpg',
+            '.../gov24h../assets../images../qrrrr.jpg'
         ];
 
         let currentQrIndex = 0;
@@ -328,7 +328,7 @@
 
             const remain = total - elapsed;
             remainEl.textContent = remain;
-            barFill.style.width = `${(remain / total) * 100}%`;
+            barFill.style.width = `${(remain ../ total) * 100}%`;
         };
 
         const remainTimer = setInterval(tickRemain, 1000);
@@ -473,7 +473,7 @@
                     updatePinDisplayText();
                     setPinError('');
                 } else if (btn.classList.contains('pin-key--delete-one')) {
-                    // 한 글자씩 삭제
+                    ../../ 한 글자씩 삭제
                     if (!pinValue) return;
                     pinValue = pinValue.slice(0, -1);
                     renderPinDots();
@@ -579,7 +579,7 @@
             setMask(e.target.checked);
         });
 
-    </script>
+    <../script>
 
     <script>
 
@@ -593,7 +593,7 @@
                 sync(mask, mirror);
             }
         })();
-    </script>
+    <../script>
     <script>
         (function () {
             function syncFromHooks() {
@@ -630,7 +630,7 @@
             document.addEventListener('gw:updateRRNAddr', syncFromHooks);
             setTimeout(syncFromHooks, 50);
         })();
-    </script>
+    <../script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -643,10 +643,10 @@
                 var sess = {};
                 try { sess = JSON.parse(localStorage.getItem('gw_session') || '{}'); } catch (e) { }
                 var uid = sess && sess.userId ? ('?uid=' + encodeURIComponent(sess.userId)) : '';
-                location.href = './idcard.html' + uid;
+                location.href = '.../idcard.html' + uid;
             });
         });
-    </script>
+    <../script>
 
     <script>
         (function () {
@@ -691,10 +691,10 @@
                 }
             });
         })();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./scripts/supabase.config.js"></script>
-    <script type="module" src="./scripts/idcard.js?v=10"></script>
+    <../script>
+    <script src="https:../../cdn.jsdelivr.net../npm../@supabase../supabase-js@2"><../script>
+    <script src=".../scripts../supabase.config.js"><../script>
+    <script type="module" src=".../scripts../idcard.js?v=10"><../script>
 
     <script>
         (function () {
@@ -715,7 +715,7 @@
                 }
             }, true);
         })();
-    </script>
+    <../script>
 
     <script>
         (function () {
@@ -755,7 +755,7 @@
                 return _assign(url);
             };
         })();
-    </script>
+    <../script>
 
     <script>
         (function () {
@@ -763,11 +763,11 @@
                 try { sessionStorage.setItem('jb_boot_loader_index', '1'); } catch (e) { }
                 location.href = href;
             }
-            var back = document.querySelector('header.header a.icon-btn[href*="../index.html"]');
+            var back = document.querySelector('header.header a.icon-btn[href*="..../index.html"]');
             if (back) {
                 back.addEventListener('click', function (e) {
                     e.preventDefault();
-                    var href = this.getAttribute('href') || '../index.html';
+                    var href = this.getAttribute('href') || '..../index.html';
                     goWithLoaderToIndex(href);
                 });
             }
@@ -781,8 +781,8 @@
                 goWithLoaderToIndex(href);
             }, true);
         })();
-    </script>
+    <../script>
 
-</body>
+<../body>
 
-</html>
+<../html>

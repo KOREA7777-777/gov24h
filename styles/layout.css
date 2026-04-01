@@ -1,11 +1,11 @@
-/* ===== Fixed-position stability for iOS/Safari ===== */
+../* ===== Fixed-position stability for iOS../Safari ===== *../
 html, body {
     -webkit-transform: none !important;
     transform: none !important;
     position: static !important;
 }
 
-/* ===== Bottom Tabbar (고정) ===== */
+../* ===== Bottom Tabbar (고정) ===== *../
 :root {
     --tabbar-h: 10%;
     --tabbar-lock-height: var(--tabbar-h);
@@ -19,8 +19,8 @@ html, body {
     bottom: 0 !important;
     transform: none !important;
     backface-visibility: hidden;
-    /* 일부 기기에서 transform/overflow 문맥 영향 방지 */
-    /* 하단 안전영역 반영하여 정확히 고정 */
+    ../* 일부 기기에서 transform../overflow 문맥 영향 방지 *../
+    ../* 하단 안전영역 반영하여 정확히 고정 *../
     width: 100%;
     pointer-events: auto;
 
@@ -40,10 +40,10 @@ html, body {
     border-radius: 15px 15px 0 0;
     box-shadow: 0 -6px 18px rgba(0, 0, 0, .06);
 
-    /* 일부 안드로이드/사파리에서 fixed + blur 조합 깜빡임/스크롤 동기화 이슈 대응 */
+    ../* 일부 안드로이드../사파리에서 fixed + blur 조합 깜빡임../스크롤 동기화 이슈 대응 *../
     will-change: transform;
     contain: layout paint;
-    /* 독립 레이어 */
+    ../* 독립 레이어 *../
 }
 
 
@@ -82,34 +82,34 @@ html, body {
     margin-top: var(--tabbar-label-offset-y);
 }
 
-/* 본문이 탭바에 가려지지 않도록 하단 패딩 보강 */
+../* 본문이 탭바에 가려지지 않도록 하단 패딩 보강 *../
 body,
 .container {
-    /* 기존 safe-area 하단 패딩에 탭바 높이를 더함 */
+    ../* 기존 safe-area 하단 패딩에 탭바 높이를 더함 *../
     padding-bottom: var(--tabbar-lock-height);
     padding-bottom: calc(env(safe-area-inset-bottom) + var(--tabbar-lock-height));
 }
 
-/* ===== Scroll-top: 탭바 아래에서 올라오는 듯 보이게 ===== */
-/* 기존 .scroll-top 규칙을 안전하게 오버라이드 */
+../* ===== Scroll-top: 탭바 아래에서 올라오는 듯 보이게 ===== *../
+../* 기존 .scroll-top 규칙을 안전하게 오버라이드 *../
 .scroll-top {
     right: 12px;
-    /* 최종 정지 위치 = 탭바 위 12px */
+    ../* 최종 정지 위치 = 탭바 위 12px *../
     bottom: calc(env(safe-area-inset-bottom) + var(--tabbar-lock-height) + 12px);
     z-index: 990;
-    /* 탭바(1000)보다 낮게 → 탭바 아래에서 등장하는 느낌 */
+    ../* 탭바(1000)보다 낮게 → 탭바 아래에서 등장하는 느낌 *../
     transform: translate3d(0, 130%, 0);
-    /* 시작: 아래(탭바 뒤)에서 대기 */
+    ../* 시작: 아래(탭바 뒤)에서 대기 *../
     opacity: 0;
 }
 
 .scroll-top.show {
     transform: translate3d(0, 0, 0);
-    /* 위로 올라와서 탭바 바로 위에 멈춤 */
+    ../* 위로 올라와서 탭바 바로 위에 멈춤 *../
     opacity: 1;
 }
 
-/* ===== Login dynamic password block ===== */
+../* ===== Login dynamic password block ===== *../
 .pw-block {
     overflow: hidden;
     max-height: 0;
@@ -120,18 +120,18 @@ body,
 
 .pw-block.is-open {
     max-height: 160px;
-    /* 아이디칸과 동일 높이 확보 */
+    ../* 아이디칸과 동일 높이 확보 *../
     opacity: 1;
     transform: translateY(0);
 }
 
-/* 에러 메시지가 없을 때도 레이아웃이 흔들리지 않도록 최소 높이 부여 */
+../* 에러 메시지가 없을 때도 레이아웃이 흔들리지 않도록 최소 높이 부여 *../
 #idError,
 #pwError {
     min-height: 1px;
 }
 
-/* 상단 안내 바 */
+../* 상단 안내 바 *../
 .notice-bar {
     display: flex;
     align-items: center;
@@ -148,7 +148,7 @@ body,
     top: 0px;
 }
 
-/* 헤더 */
+../* 헤더 *../
 .gov-header {
     display: flex;
     align-items: center;
@@ -168,7 +168,7 @@ body,
     left: 7px;
 }
 
-/* 헤더 내 액션 버튼(로그인/전체메뉴) 세로 스택 */
+../* 헤더 내 액션 버튼(로그인../전체메뉴) 세로 스택 *../
 header .header-btn {
     display: flex;
     flex-direction: column;
@@ -231,15 +231,15 @@ header .header-btn .label {
 
 .header-btn {
     text-decoration: none;
-    /* 링크 밑줄 제거 */
+    ../* 링크 밑줄 제거 *../
     color: inherit;
-    /* 글자색도 버튼/부모색 따르도록 */
+    ../* 글자색도 버튼../부모색 따르도록 *../
     display: inline-flex;
-    /* 버튼처럼 아이콘+텍스트 정렬 */
+    ../* 버튼처럼 아이콘+텍스트 정렬 *../
     align-items: center;
 }
 
-/* 공지 스트립 */
+../* 공지 스트립 *../
 .notice-strip {
     background: #fff
 }
@@ -269,7 +269,7 @@ header .header-btn .label {
     right: 8px;
 }
 
-/* SecondView 메인 섹션 */
+../* SecondView 메인 섹션 *../
 .unified-section {
     background: var(--softBG);
     border-top: 1px solid var(--stroke);
@@ -277,7 +277,7 @@ header .header-btn .label {
     border-bottom: 1px solid rgba(0, 0, 0, .06)
 }
 
-/* 검색 캡슐 */
+../* 검색 캡슐 *../
 .search-capsule {
     margin: 17px 18px;
     margin-bottom: -3px;
@@ -310,12 +310,12 @@ header .header-btn .label {
     width: var(--tabbar-icon-width);
 }
 
-/* 자주 찾는 서비스 */
+../* 자주 찾는 서비스 *../
 .frequent-services {
     margin: 30px 0 0;
 }
 
-/* 자주 찾는 서비스: 제목 아래 여백 보강 */
+../* 자주 찾는 서비스: 제목 아래 여백 보강 *../
 .frequent-services .section-title {
     margin-bottom: 16px;
 }
@@ -323,21 +323,21 @@ header .header-btn .label {
 .frequent-services .service-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 2열 고정 */
+    ../* 2열 고정 *../
     gap: 10px;
-    /* 행/열 동일 간격 */
+    ../* 행../열 동일 간격 *../
     row-gap: 9px;
-    /* 일부 브라우저에서 gap 우선순위 이슈 대비 */
+    ../* 일부 브라우저에서 gap 우선순위 이슈 대비 *../
     column-gap: 10px;
     margin-top: 0;
-    /* 그리드 자체 바깥 여백 제거 */
+    ../* 그리드 자체 바깥 여백 제거 *../
 }
 
 .service-grid span {
     color: inherit
 }
 
-/* 고정 목록 아래, 더보기 목록 위 간격을 항상 동일하게 */
+../* 고정 목록 아래, 더보기 목록 위 간격을 항상 동일하게 *../
 .frequent-services .service-grid+.service-grid {
     margin-top: 12px;
 }
@@ -364,7 +364,7 @@ header .header-btn .label {
     text-align: left;
     flex: 1;
     min-width: 0;
-    /* allow ellipsis to work in flex container */
+    ../* allow ellipsis to work in flex container *../
 }
 
 .truncate {
@@ -390,7 +390,7 @@ header .header-btn .label {
 .more-toggle-wrap {
     display: flex;
     justify-content: center;
-    /* 왼쪽 정렬 */
+    ../* 왼쪽 정렬 *../
     padding-top: 0;
     margin-top: 8px;
     margin: 5px;
@@ -404,9 +404,9 @@ header .header-btn .label {
     background: none;
     padding: 4px 8px;
     color: rgba(0, 0, 0, .6);
-    /* 연하게 */
+    ../* 연하게 *../
     cursor: pointer;
-    /* 클릭 가능한 느낌 */
+    ../* 클릭 가능한 느낌 *../
     position: relative;
     top: 15px;
 }
@@ -421,11 +421,11 @@ header .header-btn .label {
 }
 
 .more-toggle .plus {
-    /* Controls */
+    ../* Controls *../
     --size: 18px;
-    /* overall icon box size */
+    ../* overall icon box size *../
     --thickness: 4px;
-    /* stroke thickness */
+    ../* stroke thickness *../
 
     position: relative;
     display: inline-block;
@@ -434,7 +434,7 @@ header .header-btn .label {
     line-height: 1;
     vertical-align: middle;
     transform: translateY(0px);
-    /* Hide any fallback text inside this span */
+    ../* Hide any fallback text inside this span *../
     font-size: 0;
 }
 
@@ -454,7 +454,7 @@ header .header-btn .label {
     display: flex;
     justify-content: center;
     margin-top: 1px;
-    /* 더 올리고 싶으면 6px, 4px로 줄여 */
+    ../* 더 올리고 싶으면 6px, 4px로 줄여 *../
     margin-bottom: var(--more-toggle-gap-bottom, 40px);
 }
 
@@ -469,7 +469,7 @@ header .header-btn .label {
     opacity: .9;
 }
 
-/* 혜택/보조금 */
+../* 혜택../보조금 *../
 .benefit-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -483,7 +483,7 @@ header .header-btn .label {
     overflow: hidden;
     min-height: 71px;
     background: none;
-    /* 그라디언트 제거 */
+    ../* 그라디언트 제거 *../
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -500,23 +500,23 @@ header .header-btn .label {
     height: 25px;
     display: block;
     pointer-events: none;
-    /* 클릭 방해 방지 */
+    ../* 클릭 방해 방지 *../
 }
 
 .benefit--pink {
-    background: url("./gov24h/assets/images/pinkbackg.png") center/cover no-repeat;
+    background: url(".../gov24h../assets../images../pinkbackg.png") center../cover no-repeat;
 }
 
 .benefit--green {
-    background: url("./gov24h/assets/images/greenbackg.png") center/cover no-repeat;
+    background: url(".../gov24h../assets../images../greenbackg.png") center../cover no-repeat;
 }
 
 .benefit--blue {
-    background: url("./gov24h/assets/images/bluebackg.png") center/cover no-repeat;
+    background: url(".../gov24h../assets../images../bluebackg.png") center../cover no-repeat;
 }
 
 .benefit--yellow {
-    background: url("./gov24h/assets/images/yellowbackg.png") center/cover no-repeat;
+    background: url(".../gov24h../assets../images../yellowbackg.png") center../cover no-repeat;
 }
 
 .benefit-body {
@@ -558,13 +558,13 @@ header .header-btn .label {
     display: inline-block;
     vertical-align: middle;
     pointer-events: none;
-    /* ✅ 이미지가 클릭을 가로채지 않음 */
+    ../* ✅ 이미지가 클릭을 가로채지 않음 *../
     user-select: none;
     filter: brightness(0.1) contrast(1.1);
     transform: translate(2px, -0.9px);
 }
 
-/* 빠른 링크 */
+../* 빠른 링크 *../
 .quick-links {
     margin-top: 1px;
     padding-top: 1px
@@ -598,7 +598,7 @@ header .header-btn .label {
     background: #ffffff
 }
 
-/* 푸터 토글 */
+../* 푸터 토글 *../
 .footer-toggle {
     margin: 18px 0;
     background: var(--footerBG);
@@ -641,19 +641,19 @@ header .header-btn .label {
     flex-wrap: wrap
 }
 
-/* 오버레이: 정중앙 배치 */
+../* 오버레이: 정중앙 배치 *../
 .precheck-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, .35);
     display: none;
-    /* 기본은 숨김 */
+    ../* 기본은 숨김 *../
     align-items: center;
-    /* 수직 중앙 */
+    ../* 수직 중앙 *../
     justify-content: center;
-    /* 수평 중앙 */
+    ../* 수평 중앙 *../
     padding: 24px;
-    /* 가장자리 여백(모바일 안전영역 대비) */
+    ../* 가장자리 여백(모바일 안전영역 대비) *../
     z-index: 1000;
 }
 
@@ -661,47 +661,47 @@ header .header-btn .label {
     display: flex;
 }
 
-/* ===== Precheck Overlay (scaled down 0.9×) ===== */
+../* ===== Precheck Overlay (scaled down 0.9×) ===== *../
 .precheck-card {
     width: min(92vw, 279px);
-    /* 310 × 0.9 */
+    ../* 310 × 0.9 *../
     background: #fff;
     border-radius: 13px;
-    /* 14 × 0.9 ≈ 12.6 */
+    ../* 14 × 0.9 ≈ 12.6 *../
     box-shadow: 0 14px 36px rgba(0, 0, 0, .2);
-    /* 0 16px 40px × 0.9 */
+    ../* 0 16px 40px × 0.9 *../
     overflow: hidden;
     position: relative;
     top: -17px;
-    /* keep the lifted position */
+    ../* keep the lifted position *../
 }
 
 .pre-head {
     display: flex;
     align-items: center;
     gap: 7px;
-    /* 8 × 0.9 */
+    ../* 8 × 0.9 *../
     padding: 9px 11px 7px;
-    /* 10 12 8 × 0.9 */
+    ../* 10 12 8 × 0.9 *../
 }
 
 .pre-flag {
     width: 27px;
-    /* 30 × 0.9 */
+    ../* 30 × 0.9 *../
     height: 27px;
     display: block;
 }
 
 .pre-title {
     font-size: 15.3px;
-    /* 17 × 0.9 */
+    ../* 17 × 0.9 *../
     font-weight: 600;
     color: #111;
     margin: 0;
     line-height: 1.1;
 }
 
-/* separator line under the title */
+../* separator line under the title *../
 .pre-sep {
     height: 0.5px;
     background: rgba(0, 0, 0, .25);
@@ -709,14 +709,14 @@ header .header-btn .label {
 
 .precheck-text {
     padding: 16px 14px 12px;
-    /* 18 15 14 × 0.9 */
+    ../* 18 15 14 × 0.9 *../
     text-align: center;
     font-size: 14.4px;
-    /* 16 × 0.9 */
+    ../* 16 × 0.9 *../
     line-height: 1.5;
-    /* ~1.44 */
+    ../* ~1.44 *../
     margin: 0 0 7px;
-    /* 0 0 8 × 0.9 */
+    ../* 0 0 8 × 0.9 *../
 }
 
 .precheck-text .emph {
@@ -727,17 +727,17 @@ header .header-btn .label {
 
 .precheck-law {
     font-size: 14.4px;
-    /* 16 × 0.9 */
+    ../* 16 × 0.9 *../
     color: #000;
     margin: -12px 0 13px;
-    /* -13 0 15 × 0.9 */
+    ../* -13 0 15 × 0.9 *../
     text-align: center;
     font-weight: 600;
 }
 
 .precheck-law .mark {
     font-size: 14.4px;
-    /* 16 × 0.9 */
+    ../* 16 × 0.9 *../
     font-weight: 400;
     color: #000;
 }
@@ -746,18 +746,18 @@ header .header-btn .label {
     display: block;
     width: 100%;
     padding: 15px 0;
-    /* 17 × 0.9 */
+    ../* 17 × 0.9 *../
     background: #fff;
     border: 0;
     cursor: pointer;
     color: #2563eb;
     font-weight: 600;
     font-size: 14.4px;
-    /* 16 × 0.9 */
+    ../* 16 × 0.9 *../
 }
 
 
-/* 오버레이가 열릴 때 바디 스크롤 잠금(선택) */
+../* 오버레이가 열릴 때 바디 스크롤 잠금(선택) *../
 body.precheck-lock {
     overflow: hidden;
 }
@@ -784,9 +784,9 @@ body.precheck-lock {
 }
 
 .scroll-top.show {
-    /* 스크롤 ↓에서 나타날 때 */
+    ../* 스크롤 ↓에서 나타날 때 *../
     transform: translate3d(0, 0, 0);
-    /* 밑에서 위로 슥 올라옴 */
+    ../* 밑에서 위로 슥 올라옴 *../
     opacity: 1;
     pointer-events: auto;
 }
@@ -797,11 +797,11 @@ body.precheck-lock {
     display: block;
 }
 
-/* 국민소통채널 */
+../* 국민소통채널 *../
 .channel {
     margin: 0;
-    /* 아래쪽 여백을 컨테이너 padding-bottom과 정확히 상쇄해서
-       channel__card 배경이 탭바 바로 아래까지 딱 붙어 보이도록 */
+    ../* 아래쪽 여백을 컨테이너 padding-bottom과 정확히 상쇄해서
+       channel__card 배경이 탭바 바로 아래까지 딱 붙어 보이도록 *../
     margin-bottom: calc(-1 * (env(safe-area-inset-bottom)));
 }
 
@@ -867,9 +867,9 @@ body.precheck-lock {
 
 .channel__body {
     background: var(--footerBG);
-    /* 이미 회색 배경일 거야 */
+    ../* 이미 회색 배경일 거야 *../
     margin-top: 0;
-    /* ⚠️ 하단 여백은 body/.container가 탭바 높이만큼 이미 보유 → 여기선 0으로 맞춰 카드 끝과 탭바가 맞닿게 */
+    ../* ⚠️ 하단 여백은 body../.container가 탭바 높이만큼 이미 보유 → 여기선 0으로 맞춰 카드 끝과 탭바가 맞닿게 *../
     padding-bottom: 0;
     min-height: 300px;
 }
@@ -885,9 +885,9 @@ body.precheck-lock {
     height: 32px;
     display: block;
     margin: 0;
-    /* 아래로 밀리던 여백 제거 */
+    ../* 아래로 밀리던 여백 제거 *../
     align-self: center;
-    /* 행의 세로 중앙 고정 */
+    ../* 행의 세로 중앙 고정 *../
 }
 
 .channel__logo-row .toggle-icon {
@@ -895,14 +895,14 @@ body.precheck-lock {
     height: 22px;
     display: inline-block;
     position: relative;
-    /* ← 위치 보정은 position으로 */
+    ../* ← 위치 보정은 position으로 *../
     left: -16px;
-    /* X: -15px */
+    ../* X: -15px *../
     top: 0px;
-    /* Y: 5px  */
+    ../* Y: 5px  *../
     vertical-align: middle;
     margin: 17px;
-    /* 불필요한 바닥 여백 제거 */
+    ../* 불필요한 바닥 여백 제거 *../
     max-width: none;
 }
 
@@ -936,7 +936,7 @@ body.precheck-lock {
 
 .channel__list>div {
     margin-bottom: 12px;
-    /* 원하는 만큼 조절 가능 */
+    ../* 원하는 만큼 조절 가능 *../
     font-weight: 400;
     font-size: 17px;
     color: #333333;
@@ -1006,14 +1006,14 @@ body.precheck-lock {
 
 .icon-img {
     width: 18px;
-    /* 아이콘 크기 (적절히 조절 가능) */
+    ../* 아이콘 크기 (적절히 조절 가능) *../
     height: 18px;
     display: block;
 }
 
 .btnMenu {
     width: 18px;
-    /* 아이콘 크기 (적절히 조절 가능) */
+    ../* 아이콘 크기 (적절히 조절 가능) *../
     height: 18px;
     display: block;
 }
@@ -1028,7 +1028,7 @@ body.precheck-lock {
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 20px;
-    /* ✅ 자주 찾는 서비스와 밑 섹션 사이 거리 */
+    ../* ✅ 자주 찾는 서비스와 밑 섹션 사이 거리 *../
 }
 
 .quick-links {
@@ -1051,7 +1051,7 @@ body.precheck-lock {
     transform: translate(-16px, 0);
 }
 
-/* ==== Login Page UI ==== */
+../* ==== Login Page UI ==== *../
 :root {
     --pageBG: #fff;
     --text: #111;
@@ -1059,10 +1059,10 @@ body.precheck-lock {
     --soft: #f5f6f8;
     --line: #e6e8ef;
     --primary: #2f66ff;
-    /* 메인 파랑 */
+    ../* 메인 파랑 *../
     --primary-ink: #fff;
     --field-border: #cfd6e6;
-    /* 입력창 테두리 */
+    ../* 입력창 테두리 *../
 }
 
 .login-page {
@@ -1071,7 +1071,7 @@ body.precheck-lock {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Pretendard, Apple SD Gothic Neo, "Noto Sans KR", system-ui, sans-serif;
 }
 
-/* 상단 헤더 */
+../* 상단 헤더 *../
 .login-header {
     display: flex;
     align-items: center;
@@ -1113,7 +1113,7 @@ body.precheck-lock {
     margin-left: auto;
 }
 
-/* 본문 */
+../* 본문 *../
 .login-body {
     padding: 14px 16px 24px;
 }
@@ -1148,7 +1148,7 @@ body.precheck-lock {
     color: #636870;
 }
 
-/* 체크라인 */
+../* 체크라인 *../
 .checkline {
     display: flex;
     align-items: center;
@@ -1157,7 +1157,7 @@ body.precheck-lock {
     color: #222;
 }
 
-/* 기본 버튼 */
+../* 기본 버튼 *../
 .primary-btn {
     width: 100%;
     height: 52px;
@@ -1171,7 +1171,7 @@ body.precheck-lock {
     cursor: pointer;
 }
 
-/* 하단 링크 라인 */
+../* 하단 링크 라인 *../
 .hlinks {
     display: flex;
     align-items: center;
@@ -1191,7 +1191,7 @@ body.precheck-lock {
     color: #b6bdc9;
 }
 
-/* 구분선 */
+../* 구분선 *../
 .sep {
     border: 0;
     height: 1px;
@@ -1199,7 +1199,7 @@ body.precheck-lock {
     margin: 16px 0;
 }
 
-/* 불릿 목록 */
+../* 불릿 목록 *../
 .bullets {
     margin: 0;
     padding-left: 18px;
@@ -1212,14 +1212,14 @@ body.precheck-lock {
     margin: 10px 0;
 }
 
-/* 다른 로그인 방법 */
+../* 다른 로그인 방법 *../
 .alt-login-head {
     display: flex;
     flex-direction: column;
-    /* 세로 배치 */
+    ../* 세로 배치 *../
     align-items: flex-start;
     gap: 8px;
-    /* 위아래 간격 */
+    ../* 위아래 간격 *../
     margin-top: 18px;
 }
 
@@ -1231,7 +1231,7 @@ body.precheck-lock {
 
 .alt-link-row {
     display: flex;
-    /* 내부는 가로 정렬 (HStack) */
+    ../* 내부는 가로 정렬 (HStack) *../
     flex-direction: row;
     align-items: center;
     gap: 4px;
@@ -1240,7 +1240,7 @@ body.precheck-lock {
     font-weight: 500;
     color: #111;
     text-decoration: none;
-    /* 밑줄 제거 */
+    ../* 밑줄 제거 *../
 }
 
 .alt-link-row .icon-img {
@@ -1248,7 +1248,7 @@ body.precheck-lock {
     height: 18px;
 }
 
-/* 아래로 내려가며 다음 섹션 헤드 형태 유지 */
+../* 아래로 내려가며 다음 섹션 헤드 형태 유지 *../
 .below-divider {
     height: 12px;
 }
@@ -1275,7 +1275,7 @@ body.precheck-lock {
     color: #222;
 }
 
-/* 1) 기본 상자 */
+../* 1) 기본 상자 *../
 .login-page .checkline input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -1283,18 +1283,18 @@ body.precheck-lock {
     height: 20px;
     border: 1.4px solid var(--field-border);
     border-radius: 4px;
-    /* SF Symbol 느낌 라운드 */
+    ../* SF Symbol 느낌 라운드 *../
     background: #fff;
     display: inline-block;
     position: relative;
-    /* ::after 중앙 고정 기준 */
+    ../* ::after 중앙 고정 기준 *../
     cursor: pointer;
     vertical-align: middle;
 }
 
 
-/* 3) 체크됨: 파란 채움 + 체크 아이콘 이미지 */
-/* 체크박스 기본 */
+../* 3) 체크됨: 파란 채움 + 체크 아이콘 이미지 *../
+../* 체크박스 기본 *../
 .login-page .checkline input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1303,27 +1303,27 @@ body.precheck-lock {
     height: 18px;
     border: 1.4px solid #000000af;
     border-radius: 4px;
-    /* 둥글기 */
+    ../* 둥글기 *../
     outline: none;
     cursor: pointer;
     background-color: #fff;
 }
 
-/* 체크됨 상태 */
+../* 체크됨 상태 *../
 .login-page .checkline input[type="checkbox"]:checked {
     background-color: var(--primary);
-    /* 파란색 */
+    ../* 파란색 *../
     border-color: var(--primary);
-    background-image: url("./gov24h/assets/icons/checkmark.svg");
-    /* ✅ 아이콘 */
+    background-image: url(".../gov24h../assets../icons../checkmark.svg");
+    ../* ✅ 아이콘 *../
     background-repeat: no-repeat;
     background-position: center;
     background-size: 18px 18px;
-    /* 크기 조절 */
+    ../* 크기 조절 *../
     stroke: white;
 }
 
-/* 5) 포커스 접근성 */
+../* 5) 포커스 접근성 *../
 .login-page .checkline input[type="checkbox"]:focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(47, 102, 255, .18);
@@ -1381,9 +1381,9 @@ body.precheck-lock {
 .header-actionss {
     display: flex;
     flex-direction: column;
-    /* 위/아래 두 줄 배치 */
+    ../* 위../아래 두 줄 배치 *../
     align-items: flex-end;
-    /* 오른쪽 정렬 */
+    ../* 오른쪽 정렬 *../
     position: relative;
     top: 8px;
 }
@@ -1401,15 +1401,15 @@ body.precheck-lock {
 
 .icon-btn[aria-label="공유"] {
     margin-top: -5px;
-    /* threebar랑 더 가깝게 */
+    ../* threebar랑 더 가깝게 *../
 }
 
 .icon-btn[aria-label="검색"] {
     margin-right: -7px;
-    /* threebar랑 더 가깝게 */
+    ../* threebar랑 더 가깝게 *../
 }
 
-/* newlogin.html 코드들 */
+../* newlogin.html 코드들 *../
 :root {
     --line: #cfd6e4;
     --text: #111;
@@ -1432,7 +1432,7 @@ body {
     background: #fff
 }
 
-/* 헤더 */
+../* 헤더 *../
 .nl-header {
     position: sticky;
     top: 0;
@@ -1477,7 +1477,7 @@ body {
     display: block
 }
 
-/* 컨테이너 */
+../* 컨테이너 *../
 .nl-wrap {
     padding: 16px
 }
@@ -1489,7 +1489,7 @@ body {
     margin: 12px 0 18px;
 }
 
-/* 카드 박스 */
+../* 카드 박스 *../
 .nl-card {
     border: 1.5px solid var(--line);
     border-radius: 14px;
@@ -1498,7 +1498,7 @@ body {
     margin-bottom: 18px;
 }
 
-/* 폼 필드 */
+../* 폼 필드 *../
 .field {
     margin: 18px 0;
 }
@@ -1570,13 +1570,13 @@ body {
     border-radius: 12px;
     background: transparent;
     color: #000;
-    /* 텍스트 없음 — 접근성용 레이블만 사용 */
+    ../* 텍스트 없음 — 접근성용 레이블만 사용 *../
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
     display: block;
     margin-top: 10px;
-    /* 다음 버튼과 간격 */
+    ../* 다음 버튼과 간격 *../
 }
 
 .btn-outline:active {
@@ -1621,7 +1621,7 @@ body {
     border-color: #ef4444;
 }
 
-/* 주민등록번호 6-7 자리 배치 */
+../* 주민등록번호 6-7 자리 배치 *../
 .rrn {
     display: flex;
     gap: 10px;
@@ -1637,7 +1637,7 @@ body {
     color: #9aa2af;
 }
 
-/* 캡차 박스 (샘플) */
+../* 캡차 박스 (샘플) *../
 .captcha-row {
     display: flex;
     gap: 10px;
@@ -1647,7 +1647,7 @@ body {
 .captcha {
     height: 64px;
     width: 200px;
-    background: #eee url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%2264%22><text x=%2210%22 y=%2242%22 font-size=%2240%22 font-family=%22monospace%22>980401</text></svg>') center/contain no-repeat;
+    background: #eee url('data:image../svg+xml;utf8,<svg xmlns=%22http:../../www.w3.org../2000../svg%22 width=%22200%22 height=%2264%22><text x=%2210%22 y=%2242%22 font-size=%2240%22 font-family=%22monospace%22>980401<../text><../svg>') center../contain no-repeat;
     border-radius: 10px;
     border: 1px solid var(--line);
 }
@@ -1665,7 +1665,7 @@ body {
     height: 28px
 }
 
-/* ==== Prelogin Page UI ==== */
+../* ==== Prelogin Page UI ==== *../
 .prelogin-page {
     padding-bottom: 24px
 }
@@ -1741,13 +1741,13 @@ body {
 .tile {
     display: flex;
     flex-direction: column;
-    /* ⬅ 아이콘을 글자 위로, 세로 스택 */
+    ../* ⬅ 아이콘을 글자 위로, 세로 스택 *../
     align-items: center;
-    /* 가운데 정렬 */
+    ../* 가운데 정렬 *../
     justify-content: center;
-    /* 가운데 정렬 */
+    ../* 가운데 정렬 *../
     gap: 8px;
-    /* 아이콘↔텍스트 간격 */
+    ../* 아이콘↔텍스트 간격 *../
     min-height: 108px;
     border-radius: 14px;
     border: 1px solid #e3e6ea;
@@ -1814,17 +1814,17 @@ body {
 
 a {
     text-decoration: none;
-    /* 밑줄 제거 */
+    ../* 밑줄 제거 *../
     color: inherit;
-    /* 부모 글씨색 상속 */
+    ../* 부모 글씨색 상속 *../
 }
 
 .tile .multiline {
     display: block;
     text-align: center;
-    /* 가운데 정렬 */
+    ../* 가운데 정렬 *../
     line-height: 1.3;
-    /* 줄 간격 살짝 조절 */
+    ../* 줄 간격 살짝 조절 *../
 }
 
 .divider-row {
@@ -1842,10 +1842,10 @@ a {
     height: 30px;
     display: block;
     margin: 0 0 0px;
-    /* 아이콘 아래로만 여백 */
+    ../* 아이콘 아래로만 여백 *../
 }
 
-/* footer 카드는 login.html과 동일 구조 사용 */
+../* footer 카드는 login.html과 동일 구조 사용 *../
 
 .prelogin-tabs {
     display: flex;
@@ -1872,22 +1872,22 @@ a {
 
 #section-corporate .prelogin-grid:last-of-type {
     margin-bottom: 40px;
-    /* 원하는 공간 크기 조절 */
+    ../* 원하는 공간 크기 조절 *../
 }
 
 .login-page .next-section-head h3 {
     position: relative;
     top: 3px;
-    /* adjust 2~4px to taste */
+    ../* adjust 2~4px to taste *../
 }
 
 .login-page .next-section-head .plus-icon {
     position: relative;
     top: 3px;
-    /* adjust 2~4px to taste */
+    ../* adjust 2~4px to taste *../
 }
 
-/* ==== PWA safe-area & fullscreen (하단 여백 제거용) ==== */
+../* ==== PWA safe-area & fullscreen (하단 여백 제거용) ==== *../
 html,
 body {
     height: 100%;
@@ -1895,13 +1895,13 @@ body {
 
 body {
     min-height: 100dvh;
-    /* 브라우저 툴바 변동에도 꽉 채움 */
+    ../* 브라우저 툴바 변동에도 꽉 채움 *../
     padding-bottom: env(safe-area-inset-bottom);
-    /* iOS 홈 인디케이터 여백 */
+    ../* iOS 홈 인디케이터 여백 *../
     overflow-x: hidden;
 }
 
-/* 고정 하단 요소가 있다면(예: 고정 푸터/플로팅 버튼) 안전하게 붙이기 */
+../* 고정 하단 요소가 있다면(예: 고정 푸터../플로팅 버튼) 안전하게 붙이기 *../
 .safe-bottom {
     padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
@@ -1910,24 +1910,24 @@ body {
     bottom: env(safe-area-inset-bottom);
 }
 
-/* 홈화면(standalone)으로 실행될 때만 적용할 수 있는 스타일 */
+../* 홈화면(standalone)으로 실행될 때만 적용할 수 있는 스타일 *../
 @media (display-mode: standalone) {
     .browser-ui {
         display: none !important;
     }
 
-    /* 혹시 브라우저 전용 UI가 있다면 숨김 */
+    ../* 혹시 브라우저 전용 UI가 있다면 숨김 *../
 }
 
-/* iOS 사파리 홈화면 실행 감지 클래스(a2hs)용 여백 제어 */
+../* iOS 사파리 홈화면 실행 감지 클래스(a2hs)용 여백 제어 *../
 html.a2hs body {
     padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* 모바일 뷰포트에서 탭바 높이 고정값 폴백 (JS 동기화 실패 대비) */
+../* 모바일 뷰포트에서 탭바 높이 고정값 폴백 (JS 동기화 실패 대비) *../
 @media (max-width: 520px) {
   :root {
-    --tabbar-h: 84px; /* typical mobile tabbar height */
+    --tabbar-h: 84px; ../* typical mobile tabbar height *../
     --tabbar-lock-height: var(--tabbar-h);
   }
 }
