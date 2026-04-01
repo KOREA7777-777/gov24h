@@ -17,16 +17,16 @@
 <body>
     <header class="header">
         <a class="icon-btn" aria-label="뒤로가기" href="../index.html">
-            <img src="../assets/icons/black-trianlge.png" alt="뒤로가기" class="icon-img">
+            <img src="./gov24h/assets/icons/black-trianlge.png" alt="뒤로가기" class="icon-img">
         </a>
         </button>
         <div class="header__title">
             <span class="brand">정부24</span>
-            <img class="taegeukgi" src="../assets/icons/teageukgi.svg" alt="태극기" />
+            <img class="taegeukgi" src="./gov24h/assets/icons/teageukgi.svg" alt="태극기" />
             <span class="page">주민등록증 모바일 확인서비스</span>
         </div>
         <div class="header__spacer"></div>
-        <img class="threebar" id="menuOpen" src="../assets/icons/threebar.svg" alt="전체메뉴" />
+        <img class="threebar" id="menuOpen" src="./gov24h/assets/icons/threebar.svg" alt="전체메뉴" />
     </header>
 
     <div id="sideMenuOverlay" class="side-menu-overlay"></div>
@@ -34,7 +34,7 @@
         <div class="side-menu__header">
             <span class="side-menu__title">전체메뉴</span>
             <button type="button" id="menuClose" class="side-menu__close" aria-label="메뉴 닫기">
-                <img src="../assets/icons/x-ico.svg" alt="뒤로가기" class="icon-img">
+                <img src="./gov24h/assets/icons/x-ico.svg" alt="뒤로가기" class="icon-img">
             </button>
         </div>
         <ul class="side-menu__list">
@@ -63,7 +63,7 @@
                     <span id="cardRegion" class="sr-only"></span>
 
                     <div class="qr" aria-label="QR 코드">
-                        <img id="qrImage" src="../assets/images/qr.jpg" alt="QR 코드" class="qr-img" />
+                        <img id="qrImage" src="./gov24h/assets/images/qr.jpg" alt="QR 코드" class="qr-img" />
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                 </div>
             </article>
             <button id="exitDetail" class="fab-left is-hidden" aria-label="상세보기 종료">
-                <img src="../assets/icons/left-arr-ico.svg" alt="뒤로" />
+                <img src="./gov24h/assets/icons/left-arr-ico.svg" alt="뒤로" />
             </button>
         </section>
 
@@ -184,7 +184,7 @@
                     <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"></button>
 
                     <button type="button" class="pin-key pin-key--action pin-key--delete-one" aria-label="한 자리 삭제">
-                        <img src="../assets/icons/delete-ico.png" class="pin-delete-ico" alt="삭제 아이콘">
+                        <img src="./gov24h/assets/icons/delete-ico.png" class="pin-delete-ico" alt="삭제 아이콘">
                     </button>
                     <button type="button" class="pin-key pin-key--action pin-key--delete-all"
                         style="font-weight: 500;">삭제</button>
@@ -197,7 +197,7 @@
             style="display:none;">
             <div class="precheck-card">
                 <div class="pre-head">
-                    <img src="../assets/icons/teageukgi.svg" alt="" class="pre-flag" />
+                    <img src="./gov24h/assets/icons/teageukgi.svg" alt="" class="pre-flag" />
                     <h3 id="pre-title" class="pre-title">주민등록사항 조작 및 부정 사용 금지</h3>
                 </div>
 
@@ -287,10 +287,10 @@
         barFill.style.width = '100%';
 
         const QR_IMAGES = [
-            '../assets/images/qr.jpg',
-            '../assets/images/qrr.jpg',
-            '../assets/images/qrrr.jpg',
-            '../assets/images/qrrrr.jpg'
+            './gov24h/assets/images/qr.jpg',
+            './gov24h/assets/images/qrr.jpg',
+            './gov24h/assets/images/qrrr.jpg',
+            './gov24h/assets/images/qrrrr.jpg'
         ];
 
         let currentQrIndex = 0;

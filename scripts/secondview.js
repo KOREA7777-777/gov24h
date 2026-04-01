@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ev.preventDefault();
 
             if (label) label.textContent = next ? '접기' : '더보기';
-            if (icon) icon.src = next ? './assets/icons/minus.svg' : './assets/icons/plus.svg';
+            if (icon) icon.src = next ? '/gov24h/assets/icons/minus.svg' : '/gov24h/assets/icons/plus.svg';
         });
     }
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.classList.toggle('is-hidden', !next);
 
     if (label) label.textContent = next ? '접기' : '더보기';
-    if (icon)  icon.src         = next ? './assets/icons/minus.svg' : './assets/icons/plus.svg';
+    if (icon)  icon.src         = next ? '/gov24h/assets/icons/minus.svg' : '/gov24h/assets/icons/plus.svg';
   });
 });
 
