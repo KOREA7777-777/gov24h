@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>주민등록증 모바일 확인서비스 (웹)</title>
+    <link rel="stylesheet" href="../styles/idcard.css?v=5" />
+    <link rel="stylesheet" href="../styles/components.css?v=5">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="manifest" href="/manifest.webmanifest">
+</head>
+
+<body>
+    <header class="header">
+        <a class="icon-btn" aria-label="뒤로가기" href="../index.html">
+            <img src="../assets/icons/black-trianlge.png" alt="뒤로가기" class="icon-img">
+        </a>
+        </button>
+        <div class="header__title">
+            <span class="brand">정부24</span>
+            <img class="taegeukgi" src="../assets/icons/teageukgi.svg" alt="태극기" />
+            <span class="page">주민등록증 모바일 확인서비스</span>
+        </div>
+        <div class="header__spacer"></div>
+        <img class="threebar" id="menuOpen" src="../assets/icons/threebar.svg" alt="전체메뉴" />
+    </header>
+
+    <div id="sideMenuOverlay" class="side-menu-overlay"></div>
+    <nav id="sideMenu" class="side-menu" aria-hidden="true">
+        <div class="side-menu__header">
+            <span class="side-menu__title">전체메뉴</span>
+            <button type="button" id="menuClose" class="side-menu__close" aria-label="메뉴 닫기">
+                <img src="../assets/icons/x-ico.svg" alt="뒤로가기" class="icon-img">
+            </button>
+        </div>
+        <ul class="side-menu__list">
+            <li class="side-menu__item"><a href="#">이용내역</a></li>
+            <li class="side-menu__item"><a href="#">고객센터</a></li>
+            <li class="side-menu__item"><a href="#">인증수단설정</a></li>
+            <li class="side-menu__item"><a href="#">서비스해지</a></li>
+            <li class="side-menu__item"><a href="#">창닫기</a></li>
+        </ul>
+    </nav>
+
+    <main class="wrap">
+        <section class="main">
+            <article id="cardNormal" class="card is-visible">
+                <div class="profile" id="profileBox">
+                    <img id="cardPhoto" src="" alt="프로필" class="is-hidden" />
+                    <div class="profile placeholder">PHOTO</div>
+                </div>
+
+                <div class="top-row">
+                    <div class="who">
+                        <div class="name" id="name" style="font-size: 23px;"></div>
+                        <div class="region" id="region"></div>
+                    </div>
+                    <span id="cardName" class="sr-only"></span>
+                    <span id="cardRegion" class="sr-only"></span>
+
+                    <div class="qr" aria-label="QR 코드">
+                        <img id="qrImage" src="../assets/images/qr.jpg" alt="QR 코드" class="qr-img" />
+                    </div>
+                </div>
+
+                <div class="count">
+                    <div class="bar">
+                        <div class="bar-track"></div>
+                        <div class="bar-fill" id="barFill"></div>
+                    </div>
+                    <div class="time-row">
+                        <span class="label">남은시간</span>
+                        <span class="remain"><span id="remainSec">30</span>초</span>
+                    </div>
+                </div>
+
+                <div class="hint">
+                    <div class="t1">QR코드를 리더기에 스캔하세요</div>
+                    <div class="t2" id="nowClock">yyyy년MM월dd일 HH:mm:ss</div>
+                </div>
+
+                <div class="cta">
+                    <button id="btnDetail">상세정보 표시</button>
+                </div>
+            </article>
+
+            <article id="cardDetail" class="card is-hidden">
+                <div class="profile" id="profileBoxDetail">
+                    <img id="cardPhotoDetail" src="" alt="프로필" class="is-hidden" />
+                    <div class="profile placeholder">PHOTO</div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-head">
+                        <div class="who">
+                            <div class="name" id="dNameVis" style="font-size: 23px;">ooo</div>
+                        </div>
+
+                        <label class="switch" aria-label="마스킹 토글">
+                            <input id="maskToggle" type="checkbox" />
+                            <span class="track"></span>
+                            <span class="knob"></span>
+                        </label>
+
+                        <input id="detailToggle" type="checkbox" hidden />
+
+                        <div class="title-name sr-only" id="dName" aria-hidden="true">이름</div>
+                    </div>
+
+                    <div class="rrn-row">
+                        <div class="rrn"><span id="rrnFront">000000</span>-<span id="rrnTail">******* </span></div>
+                    </div>
+
+                    <span id="rrnText" class="sr-only"></span>
+
+                    <div class="addr" id="addr">대구광역시 중구 동인동 어딘가 123-45 101동 1203호</div>
+
+                    <div id="addrText" class="sr-only"></div>
+
+                    <div class="foot-info">
+                        <div class="issue" id="issueDate">2024.07.15</div>
+                        <div class="issuer" id="issuer">대구광역시 중구청장</div>
+                    </div>
+                    <span id="issueDateText" class="sr-only"></span>
+                    <span id="issuerText" class="sr-only"></span>
+                </div>
+            </article>
+            <button id="exitDetail" class="fab-left is-hidden" aria-label="상세보기 종료">
+                <img src="../assets/icons/left-arr-ico.svg" alt="뒤로" />
+            </button>
+        </section>
+
+        <section class="ticker-wrap">
+            <div class="ticker" id="ticker">
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
+                <span class="item">주민등록증 이미지 위·변조 및 부정 사용 금지 (위반시 3년 이하의 징역 또는 3천만원 이하의 벌금)</span>
+            </div>
+        </section>
+
+        <section class="modal modal--pin" id="detailModal" aria-hidden="true">
+            <div class="modal__backdrop" id="detailBackdrop"></div>
+            <div class="modal__dialog modal__dialog--pin" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+                <div class="modal__header modal__header--pin">
+                    <h4 id="detailTitle" class="modal__title">비밀번호 입력</h4>
+                    <p class="modal__subtitle">비밀번호 6자리를 입력해주세요.</p>
+                </div>
+
+                <div class="pin-box">
+                    <div class="pin-label-row">
+                        <span class="pin-label">비밀번호 입력</span>
+                    </div>
+                    <div class="pin-display" id="pinDisplay" aria-label="입력된 비밀번호 자리수" aria-live="polite"></div>
+                    <div class="pin-dots-row" aria-hidden="true" style="display:none;">
+                        <span class="pin-dot" data-index="0"></span>
+                        <span class="pin-dot" data-index="1"></span>
+                        <span class="pin-dot" data-index="2"></span>
+                        <span class="pin-dot" data-index="3"></span>
+                        <span class="pin-dot" data-index="4"></span>
+                        <span class="pin-dot" data-index="5"></span>
+                    </div>
+                    <p id="pinError" class="pin-error" aria-live="polite"></p>
+                    <button type="button" class="pin-reset-link">본인 인증 후 비밀번호 재설정</button>
+                </div>
+
+                <div class="pin-grid" id="pinGrid" aria-label="비밀번호 숫자 키패드">
+                    <button type="button" class="pin-key pin-key--digit" data-slot="0"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="1"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="2"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="3"></button>
+
+                    <button type="button" class="pin-key pin-key--digit" data-slot="4"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="5"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="6"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-slot="7"></button>
+
+                    <button type="button" class="pin-key pin-key--digit" data-slot="8"></button>
+                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"></button>
+                    <button type="button" class="pin-key pin-key--digit" data-digit="0">0</button>
+                    <button type="button" class="pin-key pin-key--spacer" disabled aria-hidden="true"></button>
+
+                    <button type="button" class="pin-key pin-key--action pin-key--delete-one" aria-label="한 자리 삭제">
+                        <img src="../assets/icons/delete-ico.png" class="pin-delete-ico" alt="삭제 아이콘">
+                    </button>
+                    <button type="button" class="pin-key pin-key--action pin-key--delete-all"
+                        style="font-weight: 500;">삭제</button>
+                    <button type="button" class="pin-key pin-key--action pin-key--ok" id="pinOkBtn">확인</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="precheck-overlay" id="precheck" role="dialog" aria-modal="true" aria-labelledby="pre-title"
+            style="display:none;">
+            <div class="precheck-card">
+                <div class="pre-head">
+                    <img src="../assets/icons/teageukgi.svg" alt="" class="pre-flag" />
+                    <h3 id="pre-title" class="pre-title">주민등록사항 조작 및 부정 사용 금지</h3>
+                </div>
+
+                <div class="pre-sep"></div>
+
+                <div class="precheck-body">
+                    <p class="precheck-text">
+                        정보통신기기에 제공된 주민등록사항을<br>
+                        조작하거나 부정하게 사용시
+                        <span class="emph">3년 이하의</span><br>
+                        <span class="emph">징역</span> 또는
+                        <span class="emph">3천만원 이하의 벌금</span>에 처해 <br>
+                        질 수 있습니다.
+                    </p>
+                    <p class="precheck-law">
+                        <span class="mark">&#8251</span> 주민등록법 제37조
+                    </p>
+                </div>
+
+                <div class="pre-sep"></div>
+
+                <button type="button" class="pre-ok" id="pre-ok">확인</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="loading" class="loading-overlay" role="alert" aria-live="assertive" aria-busy="false">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loading-text">잠시만 기다려주세요</p>
+    </div>
+
+    <script>
+        (function () {
+            var loading = document.getElementById('loading');
+            if (!loading) return;
+            function show(ms) {
+                loading.setAttribute('aria-busy', 'true');
+                if (typeof ms === 'number') setTimeout(hide, ms);
+            }
+            function hide() { loading.setAttribute('aria-busy', 'false'); }
+
+            window.showLoading = show;
+            window.hideLoading = hide;
+            var needs = false;
+            try { needs = sessionStorage.getItem('jb_boot_loader') === '1'; } catch (e) { }
+            if (needs) {
+                try { sessionStorage.removeItem('jb_boot_loader'); } catch (e) { }
+                show();
+            }
+        })();
+    </script>
+
+    <script>
+        const DATA = {
+            name: 'ㅇㅇㅇ',
+            region: '대한민국',
+            rrnFront: '000000',
+            rrnBack: '0000000',
+            address: '대한민국 중구 동인동 어딘가 123-45 501동 1203호',
+            issueDate: '2025.10.7',
+            issuer: '서울특별시 중구청장',
+            total: 30
+        };
+
+        let CURRENT = {
+            name: '', region: '', rrnFront: '', rrnBack: '', address: '', issueDate: '', issuer: ''
+        };
+        function loadCurrentFromHooks() {
+            const byIdText = (id, fb = '') => (document.getElementById(id)?.textContent || fb).trim();
+            CURRENT.name = byIdText('cardName', DATA.name);
+            CURRENT.region = byIdText('cardRegion', DATA.region);
+            const rrnText = byIdText('rrnText', `${DATA.rrnFront}-${DATA.rrnBack}`);
+            const parts = rrnText.split('-');
+            CURRENT.rrnFront = (parts[0] || DATA.rrnFront).replace(/[^0-9]/g, '').slice(0, 6);
+            CURRENT.rrnBack = (parts[1] || DATA.rrnBack).replace(/[^0-9*]/g, '').replace(/\*/g, '').slice(0, 7);
+            const addrHook = byIdText('addrText', '');
+            CURRENT.address = addrHook || CURRENT.region || DATA.address;
+            CURRENT.issueDate = byIdText('issueDateText', DATA.issueDate);
+            CURRENT.issuer = byIdText('issuerText', DATA.issuer);
+        }
+
+        const remainEl = document.getElementById('remainSec');
+        const barFill = document.getElementById('barFill');
+        const nowClock = document.getElementById('nowClock');
+        const qrImgEl = document.getElementById('qrImage');
+
+        barFill.style.width = '100%';
+
+        const QR_IMAGES = [
+            '../assets/images/qr.jpg',
+            '../assets/images/qrr.jpg',
+            '../assets/images/qrrr.jpg',
+            '../assets/images/qrrrr.jpg'
+        ];
+
+        let currentQrIndex = 0;
+
+        function applyQrImage() {
+            if (!qrImgEl) return;
+            const src = QR_IMAGES[currentQrIndex % QR_IMAGES.length];
+            qrImgEl.src = src;
+        }
+
+        applyQrImage();
+
+        let elapsed = 0;
+
+        const tickClock = () => {
+            const d = new Date();
+            const pad = n => String(n).padStart(2, '0');
+            nowClock.textContent =
+                `${d.getFullYear()}년${pad(d.getMonth() + 1)}월${pad(d.getDate())}일 ` +
+                `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        };
+        tickClock();
+        setInterval(tickClock, 1000);
+
+        const total = DATA.total;
+
+        const tickRemain = () => {
+            elapsed += 1;
+
+            if (elapsed >= total) {
+                elapsed = 0;
+                currentQrIndex = (currentQrIndex + 1) % QR_IMAGES.length;
+                applyQrImage();
+            }
+
+            const remain = total - elapsed;
+            remainEl.textContent = remain;
+            barFill.style.width = `${(remain / total) * 100}%`;
+        };
+
+        const remainTimer = setInterval(tickRemain, 1000);
+
+        const cardNormal = document.getElementById('cardNormal');
+        const cardDetail = document.getElementById('cardDetail');
+        const detailModal = document.getElementById('detailModal');
+        const detailBackdrop = document.getElementById('detailBackdrop');
+        const tickerWrap = document.querySelector('.ticker-wrap');
+        const pinDots = document.querySelectorAll('.pin-dot');
+        const pinErrorEl = document.getElementById('pinError');
+        const pinGrid = document.getElementById('pinGrid');
+        const pinOkBtn = document.getElementById('pinOkBtn');
+        const pinDisplay = document.getElementById('pinDisplay');
+        let pinValue = '';
+
+        function renderPinDots() {
+            pinDots.forEach((dot, idx) => {
+                if (idx < pinValue.length) {
+                    dot.classList.add('pin-dot--filled');
+                } else {
+                    dot.classList.remove('pin-dot--filled');
+                }
+            });
+        }
+
+        function updatePinDisplayText() {
+            if (!pinDisplay) return;
+            pinDisplay.textContent = '*'.repeat(pinValue.length);
+        }
+
+        function setPinError(msg) {
+            if (!pinErrorEl) return;
+            pinErrorEl.textContent = msg || '';
+        }
+
+        function shuffleDigits() {
+            const grid = document.getElementById('pinGrid');
+            if (!grid) return;
+            const allKeys = Array.from(grid.querySelectorAll('.pin-key:not(.pin-key--action)'));
+            if (allKeys.length === 0) return;
+            const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            for (let i = digits.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [digits[i], digits[j]] = [digits[j], digits[i]];
+            }
+            const roles = [];
+            for (let i = 0; i < allKeys.length; i++) {
+                roles.push(i < digits.length ? 'digit' : 'spacer');
+            }
+            for (let i = roles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [roles[i], roles[j]] = [roles[j], roles[i]];
+            }
+
+            let dIndex = 0;
+            allKeys.forEach((btn, idx) => {
+                const role = roles[idx];
+                if (role === 'digit') {
+                    const d = digits[dIndex++];
+                    btn.classList.add('pin-key--digit');
+                    btn.classList.remove('pin-key--spacer');
+                    btn.disabled = false;
+                    btn.removeAttribute('aria-hidden');
+                    btn.textContent = d;
+                    btn.dataset.digit = d;
+                } else {
+                    btn.classList.add('pin-key--spacer');
+                    btn.classList.remove('pin-key--digit');
+                    btn.textContent = '';
+                    btn.removeAttribute('data-digit');
+                    btn.disabled = true;
+                    btn.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+
+        function resetPin(shuffle = true) {
+            pinValue = '';
+            renderPinDots();
+            updatePinDisplayText();
+            setPinError('');
+            if (shuffle) shuffleDigits();
+        }
+
+        function openDetailModal() {
+            detailModal.setAttribute('aria-hidden', 'false');
+            resetPin(true);
+            if (tickerWrap) {
+                tickerWrap.style.display = 'none';
+                tickerWrap.style.visibility = 'hidden';
+            }
+        }
+        function closeDetailModal() {
+            detailModal.setAttribute('aria-hidden', 'true');
+            resetPin(false);
+            if (tickerWrap) {
+                tickerWrap.style.display = '';
+                tickerWrap.style.visibility = '';
+            }
+        }
+
+        const btnDetail = document.getElementById('btnDetail');
+        if (btnDetail) btnDetail.addEventListener('click', openDetailModal);
+        if (detailBackdrop) detailBackdrop.addEventListener('click', closeDetailModal);
+
+        function handlePinSuccess() {
+            loadCurrentFromHooks();
+            closeDetailModal();
+            showDetailCard();
+            document.getElementById('dName').textContent = CURRENT.name;
+            const nm = document.getElementById('name'); if (nm) nm.textContent = CURRENT.name;
+            const rg = document.getElementById('region'); if (rg) rg.textContent = CURRENT.region;
+            document.getElementById('rrnFront').textContent = CURRENT.rrnFront;
+            document.getElementById('addr').textContent = CURRENT.address;
+            document.getElementById('issueDate').textContent = CURRENT.issueDate;
+            document.getElementById('issuer').textContent = CURRENT.issuer;
+            const dRegionEl = document.getElementById('dRegion');
+            if (dRegionEl) dRegionEl.textContent = CURRENT.region;
+            setMask(false);
+        }
+
+        function checkPinAndProceed() {
+            if (pinValue.length !== 6) {
+                setPinError('비밀번호 6자리를 모두 입력해주세요.');
+                return;
+            }
+            handlePinSuccess();
+        }
+
+        if (pinGrid) {
+            pinGrid.addEventListener('click', function (e) {
+                const btn = e.target.closest('.pin-key');
+                if (!btn) return;
+
+                if (btn.classList.contains('pin-key--digit')) {
+                    const d = btn.dataset.digit;
+                    if (!d) return;
+                    if (pinValue.length >= 6) return;
+                    pinValue += d;
+                    renderPinDots();
+                    updatePinDisplayText();
+                    setPinError('');
+                } else if (btn.classList.contains('pin-key--delete-one')) {
+                    // 한 글자씩 삭제
+                    if (!pinValue) return;
+                    pinValue = pinValue.slice(0, -1);
+                    renderPinDots();
+                    updatePinDisplayText();
+                    setPinError('');
+                } else if (btn.classList.contains('pin-key--delete-all')) {
+                    if (!pinValue) return;
+                    pinValue = '';
+                    renderPinDots();
+                    updatePinDisplayText();
+                    setPinError('');
+                } else if (btn.classList.contains('pin-key--ok')) {
+                    checkPinAndProceed();
+                }
+            });
+        }
+
+        if (pinOkBtn) {
+            pinOkBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                checkPinAndProceed();
+            });
+        }
+        const exitBtn = document.getElementById('exitDetail');
+        const precheck = document.getElementById('precheck');
+        const preOk = document.getElementById('pre-ok');
+
+        function positionExitFab() {
+          if (!exitBtn) return;
+          const detailVisible = !cardDetail.classList.contains('is-hidden');
+          if (!detailVisible) return;
+
+          const ticker = document.querySelector('.ticker-wrap');
+          const card = cardDetail;
+          if (!ticker || !card) return;
+
+          const cardRect = card.getBoundingClientRect();
+          const tickerRect = ticker.getBoundingClientRect();
+          const fabH = exitBtn.offsetHeight || 48;
+          const minTop = Math.round(cardRect.bottom + 7);
+          const maxTop = Math.round(tickerRect.top - 5 - fabH);
+          let top = minTop;
+          if (top > maxTop) top = maxTop;
+
+          top = Math.max(0, Math.min(top, window.innerHeight - fabH));
+
+          exitBtn.style.top = top + 'px';
+          exitBtn.style.bottom = 'auto';
+        }
+
+        function openPrecheck() {
+            precheck.style.display = 'flex';
+        }
+        function closePrecheck() {
+            precheck.style.display = 'none';
+        }
+
+        exitBtn.addEventListener('click', openPrecheck);
+
+        preOk.addEventListener('click', () => {
+            closePrecheck();
+            cardDetail.classList.add('is-hidden');
+            cardNormal.classList.remove('is-hidden');
+            exitBtn.classList.add('is-hidden');
+            exitBtn.style.top = '';
+            exitBtn.style.bottom = '';
+
+            elapsed = 0;
+            remainEl.textContent = DATA.total;
+            barFill.style.width = '100%';
+            currentQrIndex = 0;
+            applyQrImage();
+        });
+        function showDetailCard() {
+            cardNormal.classList.add('is-hidden');
+            cardDetail.classList.remove('is-hidden');
+            exitBtn.classList.remove('is-hidden');
+            positionExitFab();
+        }
+        window.addEventListener('resize', positionExitFab);
+        window.addEventListener('orientationchange', positionExitFab);
+        document.addEventListener('scroll', positionExitFab, true);
+        setTimeout(positionExitFab, 50);
+
+        const maskInput = document.getElementById('maskToggle');
+        const rrnTailEl = document.getElementById('rrnTail');
+        function setMask(mask) {
+            maskInput.checked = mask;
+
+            const back = CURRENT.rrnBack || DATA.rrnBack || '';
+            rrnTailEl.textContent = mask
+                ? (back || '0000000')
+                : '*'.repeat(Math.max(7, back.length || 7));
+
+            const addrEl = document.getElementById('addr');
+            if (addrEl) {
+                const region = CURRENT.region || DATA.region || '';
+                const full = CURRENT.address || region;
+                addrEl.textContent = mask ? full : region;
+            }
+        }
+        maskInput.addEventListener('change', (e) => {
+            setMask(e.target.checked);
+        });
+
+    </script>
+
+    <script>
+
+        (function () {
+            const mask = document.getElementById('maskToggle');
+            const mirror = document.getElementById('detailToggle');
+            if (mask && mirror) {
+                const sync = (from, to) => { to.checked = from.checked; };
+                mask.addEventListener('change', () => sync(mask, mirror));
+                mirror.addEventListener('change', () => sync(mirror, mask));
+                sync(mask, mirror);
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            function syncFromHooks() {
+                var hName = document.getElementById('cardName')?.textContent || '';
+                var hRegion = document.getElementById('cardRegion')?.textContent || '';
+                var hRrn = document.getElementById('rrnText')?.textContent || '';
+                var hAddr = document.getElementById('addrText')?.textContent || '';
+                var hIssue = document.getElementById('issueDateText')?.textContent || '';
+                var hIssuer = document.getElementById('issuerText')?.textContent || '';
+
+                if (hName) {
+                    var nm = document.getElementById('name'); if (nm) nm.textContent = hName;
+                    var dn = document.getElementById('dName'); if (dn) dn.textContent = hName;
+                }
+                if (hRegion) {
+                    var rg = document.getElementById('region'); if (rg) rg.textContent = hRegion;
+                }
+                if (hRrn) {
+                    var p = hRrn.split('-');
+                    var f = document.getElementById('rrnFront'); if (f) f.textContent = (p[0] || '');
+                    var t = document.getElementById('rrnTail'); if (t) t.textContent = (p[1] || '');
+                }
+                if (hAddr) {
+                    var a = document.getElementById('addr'); if (a) a.textContent = hAddr;
+                }
+                if (hIssue) {
+                    var i = document.getElementById('issueDate'); if (i) i.textContent = hIssue;
+                }
+                if (hIssuer) {
+                    var is = document.getElementById('issuer'); if (is) is.textContent = hIssuer;
+                }
+            }
+            document.addEventListener('DOMContentLoaded', syncFromHooks);
+            document.addEventListener('gw:updateRRNAddr', syncFromHooks);
+            setTimeout(syncFromHooks, 50);
+        })();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.getElementById('btnMobileID');
+            if (!btn) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var go = window.confirm('주민등록증 모바일 확인서비스로 이동할까요?');
+                if (!go) return;
+                var sess = {};
+                try { sess = JSON.parse(localStorage.getItem('gw_session') || '{}'); } catch (e) { }
+                var uid = sess && sess.userId ? ('?uid=' + encodeURIComponent(sess.userId)) : '';
+                location.href = './idcard.html' + uid;
+            });
+        });
+    </script>
+
+    <script>
+        (function () {
+            var menuOpen = document.getElementById('menuOpen');
+            var sideMenu = document.getElementById('sideMenu');
+            var overlay = document.getElementById('sideMenuOverlay');
+            var menuClose = document.getElementById('menuClose');
+            if (!menuOpen || !sideMenu || !overlay) return;
+
+            function openMenu() {
+                sideMenu.classList.add('side-menu--open');
+                overlay.classList.add('side-menu-overlay--active');
+                sideMenu.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                sideMenu.classList.remove('side-menu--open');
+                overlay.classList.remove('sideMenu-overlay--active');
+                overlay.classList.remove('side-menu-overlay--active');
+                sideMenu.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            menuOpen.addEventListener('click', function (e) {
+                e.preventDefault();
+                openMenu();
+            });
+
+            if (menuClose) {
+                menuClose.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    closeMenu();
+                });
+            }
+
+            overlay.addEventListener('click', closeMenu);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/supabase.config.js"></script>
+    <script type="module" src="../scripts/idcard.js?v=10"></script>
+
+    <script>
+        (function () {
+            var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+            if (!isStandalone) return; 
+
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest('a[href]');
+                if (!a) return;
+
+                var url = new URL(a.href, location.origin);
+                var sameOrigin = (url.origin === location.origin);
+
+                if (sameOrigin) {
+                    e.preventDefault();
+                    a.removeAttribute('target');
+                    location.href = url.pathname + url.search + url.hash;
+                }
+            }, true);
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var inStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+            if (!inStandalone) return;
+            document.addEventListener('click', function (e) {
+                var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+                if (!a) return;
+                var href = a.getAttribute('href');
+                if (!href) return;
+                try {
+                    var url = new URL(href, location.href);
+                    if (url.origin === location.origin) {
+                        e.preventDefault();
+                        location.assign(url.pathname + url.search + url.hash);
+                    }
+                } catch (_) { }
+            }, true);
+            var _assign = location.assign.bind(location);
+            location.assign = function (url) {
+                try {
+                    var u = new URL(url, location.href);
+                    if (u.origin === location.origin) {
+                        return _assign(u.pathname + u.search + u.hash);
+                    }
+                } catch (_) { }
+                return _assign(url);
+            };
+            var _replace = location.replace.bind(location);
+            location.replace = function (url) {
+                try {
+                    var u = new URL(url, location.href);
+                    if (u.origin === location.origin) {
+                        return location.assign(u.pathname + u.search + u.hash);
+                    }
+                } catch (_) { }
+                return _assign(url);
+            };
+        })();
+    </script>
+
+    <script>
+        (function () {
+            function goWithLoaderToIndex(href) {
+                try { sessionStorage.setItem('jb_boot_loader_index', '1'); } catch (e) { }
+                location.href = href;
+            }
+            var back = document.querySelector('header.header a.icon-btn[href*="../index.html"]');
+            if (back) {
+                back.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var href = this.getAttribute('href') || '../index.html';
+                    goWithLoaderToIndex(href);
+                });
+            }
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a[href*="index.html"]');
+                if (!a) return;
+                if (a === back) return;
+                var href = a.getAttribute('href');
+                if (!href) return;
+                e.preventDefault();
+                goWithLoaderToIndex(href);
+            }, true);
+        })();
+    </script>
+
+</body>
+
+</html>

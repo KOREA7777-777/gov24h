@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 - 정부24</title>
+  <link rel="stylesheet" href="../styles/base.css?v=5">
+  <link rel="stylesheet" href="../styles/layout.css?v=5">
+  <link rel="stylesheet" href="../styles/components.css?v=5">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+</head>
+
+<body>
+
+  <section class="login-page">
+    <header class="login-header">
+      <a class="icon-btn" href="./beforelogin.html">
+        <img src="../assets/icons/left-arr-ico.svg" alt="뒤로가기" class="ico-back" style=" position: relative; top: 1px">
+      </a>
+      <h1 style="font-weight:400; position: relative; top: 1px; ">아이디 로그인</h1>
+      <div class="header-actions">
+        <div class="top-icons" style="position: relative; bottom: 5px; left: 40px">
+          <button class="icon-btn" aria-label="검색">
+            <img src="../assets/icons/glass.svg" alt="검색" class="icon-img">
+          </button>
+          <button class="icon-btn" aria-label="전체메뉴">
+            <img src="../assets/icons/threebar.svg" alt="전체메뉴" class="icon-img">
+          </button>
+        </div>
+        <div class="bottom-icons" style="position: relative; top: 27px">
+          <button class="icon-btn" aria-label="공유">
+            <img src="../assets/icons/share.svg" alt="공유" class="icon-img">
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="login-body">
+      <label class="field-label" for="loginId" style="font-weight: 400; font-size: 13px; position: relative; left: 2px">아이디</label>
+      <div class="textfield">
+        <input id="loginId" type="text" placeholder="아이디를 입력하세요." />
+      </div>
+      <p id="idError" class="error-msg"></p>
+
+      <label class="checkline" style="margin-top: -23px;">
+        <input type="checkbox" class="flip-y">
+        <span>아이디 저장</span>
+      </label>
+
+      <div id="pwBlock" class="pw-block is-collapsed" aria-hidden="true">
+        <label class="field-label" for="loginPw">비밀번호</label>
+        <div class="textfield">
+          <input id="loginPw" type="password" placeholder="비밀번호를 입력하세요." />
+        </div>
+        <p id="pwError" class="error-msg"></p>
+      </div>
+
+      <button class="primary-btn" type="button">다음</button>
+
+      <nav class="hlinks">
+        <a href="newlogin.html">회원가입</a>
+        <span class="hlinks">|</span>
+        <a href="findacc.html">아이디 찾기</a>
+        <span class="hlinks">|</span>
+        <a href="findpasswd.html">비밀번호 찾기</a>
+      </nav>
+
+      <hr class="sep" />
+
+      <ul class="bullets">
+        <li>본인 인증이 필요한 서비스 이용시 별도의 간편인증, 공동·금융 인증이 진행됩니다.</li>
+        <li>개인정보 보호를 위해 비밀번호 5회 이상 오류 시, 비밀번호 재설정이 필요합니다.</li>
+        <li>비밀번호는 주기적(3개월)으로 변경하시고, 서비스 이용 후 반드시 로그아웃 하시기 바랍니다.</li>
+        <li>불법적인 목적 또는 상업적인 목적으로 사용하지 마세요.</li>
+        <li>학습 및 테스트 용입니다.</li>
+      </ul>
+
+      <hr class="sep" />
+
+      <div class="alt-login-head">
+        <h2 class="alt-title">다른 로그인 방법을 찾으세요?</h2>
+        <div class="alt-link-row">
+          <span>다른 로그인 방법 보기</span>
+          <img src="../assets/icons/right-arr.svg" alt="" class="icon-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="below-divider"></div>
+    <div class="next-section-head">
+      <h3>국민소통채널</h3>
+      <img src="../assets/icons/plus.svg" alt="" class="plus-icon" data-more-icon>
+    </div>
+  </section>
+  <div class="channel__panel" id="channelPanel">
+    <div class="channel__card">
+      <div class="channel__logo-row">
+        <img src="../assets/images/gov24.svg" alt="정부24" class="logo-img">
+        <button type="button" class="channel__toggle" id="channelToggle" aria-expanded="false"
+          aria-controls="panelCompact panelExpanded" title="펼치기/접기">
+          <img src="../assets/icons/footer-toggle.svg" alt="화면 전환" class="toggle-icon"
+            style="width:22px;height:22px;display:inline-block;vertical-align:middle;" />
+        </button>
+        <div class="sns">
+          <div class="sns__item">
+            <div class="sns__icon">
+              <img src="../assets/icons/download-15.svg" alt="페이스북" class="sns-img">
+            </div>
+            <div class="sns__icon">
+              <img src="../assets/icons/download-14.svg" alt="유튜브" class="sns-img">
+            </div>
+            <div class="sns__icon">
+              <img src="../assets/icons/download-12.svg" alt="블로그" class="sns-img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="channel__body">
+        <div id="panelCompact" class="footer-view">
+          <p class="title">콜센터</p>
+          <p class="contact-info">1588-2188,<br>02-721-0600 (지역번호 '02'를 확인하세요.)<br>(09:00 ~ 18:00 평일)</p>
+          <p class="title">정부민원안내콜센터</p>
+          <p>국번없이 110 (무료, 휴일포함 365일 24시간)</p>
+        </div>
+
+        <div id="panelExpanded" class="footer-view is-hidden">
+          <span class="divider"></span>
+          <p class="address-line">본관 : 30112 세종특별자치시 도움6로 42(어진동)</p>
+          <p class="address-line">별관 : 30116 세종특별자치시 가름로 143(어진동)</p>
+
+          <p class="title">콜센터</p>
+          <p class="contact-info">1588-2188,<br>02-721-0600 (지역번호 '02'를 확인하세요.)
+            <br>(09:00 ~ 18:00 평일)
+          </p>
+
+          <p class="title">정부민원안내콜센터</p>
+          <p>국번없이 110 (무료, 휴일포함 365일 24시간)</p>
+
+          <p class="title">내선번호</p>
+          <p class="extension-list">1번 주민등록표 등본(초본), 건축물대장, 토지대장<br>
+            2번 민원신청 및 발급문의<br>
+            3번 보조금24 조회, 신청문의<br>
+            4번 회원가입 및 로그인 문의</p>
+
+          <div class="channel__list">
+            <div>찾아오시는 길</div>
+            <div>상담예약</div>
+            <div>누리집 의견 수렴</div>
+            <div>공공서비스 활용(Open API)</div>
+          </div>
+        </div>
+        <span class="divider"></span>
+        <div class="channel__links">
+          <button class="text-btn">개인정보처리방침</button>
+          <button class="text-btn">이용약관</button>
+        </div>
+        <p class="copyright">© Ministry of the Interior and Safety. All Rights <br>Reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <button id="scrollTop" class="scroll-top is-hidden" aria-label="맨 위로">↑</button>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('channelToggle');
+      if (!btn) return;
+      var compact = document.getElementById('panelCompact');
+      var expanded = document.getElementById('panelExpanded');
+      var icon = btn.querySelector('.toggle-icon');
+
+      btn.addEventListener('click', function () {
+        var isOpen = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!isOpen));
+
+        if (isOpen) {
+          if (expanded) expanded.classList.add('is-hidden');
+          if (compact) compact.classList.remove('is-hidden');
+        } else {
+          if (compact) compact.classList.add('is-hidden');
+          if (expanded) expanded.classList.remove('is-hidden');
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTop');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 10) {
+          btn.classList.remove('is-hidden');
+        } else {
+          btn.classList.add('is-hidden');
+        }
+      });
+
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../scripts/supabase.config.js"></script>
+  <script defer src="../scripts/login.js"></script>
+
+  <script>
+    (function () {
+      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      if (!isStandalone) return;
+
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+
+        var url = new URL(a.href, location.origin);
+        var sameOrigin = (url.origin === location.origin);
+
+        if (sameOrigin) {
+          e.preventDefault();
+          a.removeAttribute('target');
+          location.href = url.pathname + url.search + url.hash;
+        }
+      }, true);
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>정부24 스플래시</title>
+  <link rel="stylesheet" href="../styles/splash.css" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="manifest" href="/manifest.webmanifest">
+</head>
+
+<body>
+  <main class="splash">
+    <div class="splash__center">
+      <img src="../assets/images/gov24.svg" alt="정부24" class="splash__brand" />
+      <p class="splash__subtitle">국민을 위한 맞춤형 정부 서비스</p>
+    </div>
+    <div class="splash__bottom">
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="로딩 진행률">
+        <div class="progress__bar" style="width:0%"></div>
+      </div>
+      <p class="splash__hint">잠시만 기다려 주세요</p>
+    </div>
+  </main>
+
+  <script type="module" src="./scripts/splash.js?v=13"></script>
+  <script>
+    (function () {
+      var target = '../index.html';
+      function goHome() { try { window.location.replace(target); } catch (e) { window.location.href = target; } }
+
+      var bar = document.querySelector('.progress__bar');
+      if (bar) { bar.style.width = '100%'; }
+
+      setTimeout(goHome, 1600);
+
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) setTimeout(goHome, 50);
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      if (!isStandalone) return;
+
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+
+        var url = new URL(a.href, location.origin);
+        var sameOrigin = (url.origin === location.origin);
+
+        if (sameOrigin) {
+          e.preventDefault();
+          a.removeAttribute('target');
+          location.href = url.pathname + url.search + url.hash;
+        }
+      }, true);
+    })();
+  </script>
+</body>
+
+</html>

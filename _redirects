@@ -1,0 +1,3 @@
+https://(netlify name).netlify.app/*  https://cloudflare name.com/:splat  301!
+/   /pages/splash.html  200
+/*  /index.html  200
