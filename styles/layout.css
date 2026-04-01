@@ -504,19 +504,19 @@ header .header-btn .label {
 }
 
 .benefit--pink {
-    background: url("./gov24h/assets/images/pinkbackg.png") center/cover no-repeat;
+    background: url("./assets/images/pinkbackg.png") center/cover no-repeat;
 }
 
 .benefit--green {
-    background: url("./gov24h/assets/images/greenbackg.png") center/cover no-repeat;
+    background: url("./assets/images/greenbackg.png") center/cover no-repeat;
 }
 
 .benefit--blue {
-    background: url("./gov24h/assets/images/bluebackg.png") center/cover no-repeat;
+    background: url("./assets/images/bluebackg.png") center/cover no-repeat;
 }
 
 .benefit--yellow {
-    background: url("./gov24h/assets/images/yellowbackg.png") center/cover no-repeat;
+    background: url("./assets/images/yellowbackg.png") center/cover no-repeat;
 }
 
 .benefit-body {
@@ -1314,7 +1314,7 @@ body.precheck-lock {
     background-color: var(--primary);
     /* 파란색 */
     border-color: var(--primary);
-    background-image: url("./gov24h/assets/icons/checkmark.svg");
+    background-image: url("./assets/icons/checkmark.svg");
     /* ✅ 아이콘 */
     background-repeat: no-repeat;
     background-position: center;
