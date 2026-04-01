@@ -48,7 +48,7 @@
   $id?.addEventListener('input', () => {
     showIdError('');
     const raw = ($id.value || '');
-    const norm = raw.trim().toLowerCase().replace(../[^a-z0-9]../g, '');
+    const norm = raw.trim().toLowerCase().replace(./[^a-z0-9]./g, '');
     if ($id.value !== norm) $id.value = norm;
     if (norm.length === 0) {
       openPwBlock(false);
@@ -103,7 +103,7 @@
 
       const until = Date.now() + 24 * 60 * 60 * 1000;
       localStorage.setItem('gov24_login_until', String(until));
-      location.href = '..../index.html';
+      location.href = '.../index.html';
     } catch (e) {
       console.error('[login] signIn fatal error:', e);
       showPwError('로그인 중 오류가 발생했습니다.');

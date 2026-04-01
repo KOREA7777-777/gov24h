@@ -75,7 +75,7 @@ function setHelp(inputEl, helpEl, msg, isError) {
   }
 }
 function hideHelp(helpEl) { if (helpEl) helpEl.textContent = ''; helpEl?.classList.remove('error', 'ok'); }
-function onlyDigits(str) { return str.replace(../\D+../g, ''); }
+function onlyDigits(str) { return str.replace(./\D+./g, ''); }
 
 function goStep2() {
   if (step1Card) step1Card.classList.add('is-hidden');
@@ -91,12 +91,12 @@ function goStep1() {
   if (step2Actions) step2Actions.classList.add('is-hidden');
 }
 
-const reKoreanName = ../^[가-힣]{1,10}$../;
+const reKoreanName = ./^[가-힣]{1,10}$./;
 function sanitizeKorean(str) {
-  return String(str || '').replace(../[^가-힣]../g, '').slice(0, 10);
+  return String(str || '').replace(./[^가-힣]./g, '').slice(0, 10);
 }
 
-const reRule = ../^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':",.<>../?`~]{8,20}$../;
+const reRule = ./^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':",.<>./?`~]{8,20}$./;
 
 const TAKEN_IDS = new Set(['admin', 'test', 'guest', 'gov24', 'manager']);
 let idChecked = false;
@@ -197,7 +197,7 @@ rrn2?.addEventListener('input', handleRRNInput);
 userId?.addEventListener('input', () => {
   if (!userId) return;
   const orig = userId.value;
-  const cleaned = orig.replace(../[^A-Za-z0-9]../g, '').toLowerCase();
+  const cleaned = orig.replace(./[^A-Za-z0-9]./g, '').toLowerCase();
   if (orig !== cleaned) userId.value = cleaned;
 }, { capture: true });
 
@@ -211,7 +211,7 @@ userId?.addEventListener('input', () => {
 btnIdCheck?.addEventListener('click', () => {
   const v = userId?.value.trim();
   if (!v) { setHelp(userId, idHelp, '아이디를 입력해 주세요.', true); return; }
-  if (!../^[a-z0-9]{4,20}$../i.test(v)) {
+  if (!./^[a-z0-9]{4,20}$./i.test(v)) {
     setHelp(userId, idHelp, '영문과 숫자 4~20자로 입력해 주세요.', true);
     idChecked = false;
     return;
@@ -293,7 +293,7 @@ async function registerToSupabase({ userId, name, password, rrnFront, rrnBack, a
     }
     const user = data.user;
 
-    ../../ 2) 프로필 저장
+    ././ 2) 프로필 저장
     const { error: profErr } = await supabase.from('profiles').insert({
       user_id: user.id,
       login_id: userId,
@@ -314,7 +314,7 @@ async function registerToSupabase({ userId, name, password, rrnFront, rrnBack, a
     if (rrnErr) console.warn('rrn insert error:', rrnErr);
 
     alert('회원가입 완료! 관리자 승인 후 로그인 가능합니다.');
-    location.href = '.../beforelogin.html';
+    location.href = '../beforelogin.html';
   } catch (err) {
     console.error('[registerToSupabase] error:', err);
     alert('서버 오류가 발생했습니다.');
@@ -363,7 +363,7 @@ btnSubmit?.addEventListener('click', async (e) => {
       issueDate: issueDateVal,
       issuer: issuerVal
     });
-  } catch (e) { ../* no-op *../ }
+  } catch (e) { ./* no-op *./ }
 });
 
 setNeutral(nameInput, nameHelp, '이름을 입력해 주세요. (한글 1~10자)');

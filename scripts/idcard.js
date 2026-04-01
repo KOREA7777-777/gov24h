@@ -5,7 +5,7 @@
   const $ = (sel) => document.querySelector(sel);
   const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v ?? ''; };
   const setSrc = (id, v) => { const el = document.getElementById(id); if (el && v) el.src = v; };
-  const onlyNum = (v) => String(v || '').replace(../[^0-9]../g, '');
+  const onlyNum = (v) => String(v || '').replace(./[^0-9]./g, '');
   const maskBack = (back) => {
     const n = String(back || '');
     if (!n) return '*******';
@@ -15,7 +15,7 @@
   const supabase = window.supabaseClient;
   if (!supabase) {
     console.error('[idcard.js] Supabase client not found.');
-    try { location.replace('..../pages../beforelogin.html'); } catch (e) { }
+    try { location.replace('.../pages./beforelogin.html'); } catch (e) { }
     return;
   }
 
@@ -50,9 +50,9 @@
   function formatDotDate(isoOrYmd) {
     if (!isoOrYmd) return '';
     const s = String(isoOrYmd);
-    const m = s.match(../^(\d{4})-(\d{2})-(\d{2})../);
+    const m = s.match(./^(\d{4})-(\d{2})-(\d{2})./);
     if (m) return `${m[1]}.${m[2]}.${m[3]}`;
-    return s.replace(../-../g, '.');
+    return s.replace(./-./g, '.');
   }
 
   const detailToggle = document.getElementById('detailToggle');
@@ -189,10 +189,10 @@
 
   async function bootstrap() {
     const user = await getCurrentUser();
-    if (!user) { try { location.replace('..../pages../beforelogin.html'); } catch (e) { } throw new Error('no-user'); }
+    if (!user) { try { location.replace('.../pages./beforelogin.html'); } catch (e) { } throw new Error('no-user'); }
 
     const loaded = await loadProfile(user.id);
-    if (loaded?.blocked) { try { location.replace('..../pages../beforelogin.html'); } catch (e) { } throw new Error('blocked'); }
+    if (loaded?.blocked) { try { location.replace('.../pages./beforelogin.html'); } catch (e) { } throw new Error('blocked'); }
 
     const prof = loaded.prof || {};
     const rrn = loaded.rrn || {};
@@ -201,7 +201,7 @@
   }
 
   async function loadApiProfile() {
-    const res = await fetch('../api../profile', { cache: 'no-store' });
+    const res = await fetch('./api./profile', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     const unwrap = (value) => {
