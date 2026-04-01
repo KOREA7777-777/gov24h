@@ -1,23 +1,23 @@
 (function () {
   const TABBAR_HTML = [
     '<nav class="tabbar" id="tabbar" role="navigation" aria-label="하단 메뉴">',
-    '  <a class="tabbar-item" href="./">',
-    '    <img class="tabbar-ico" src="./assets./icons./person-icon.svg" alt="" ./>',
-    '    <span class="tabbar-label">MyGOV<./span>',
-    '  <./a>',
+    '  <a class="tabbar-item" href="/">',
+    '    <img class="tabbar-ico" src="/assets/icons/person-icon.svg" alt="" />',
+    '    <span class="tabbar-label">MyGOV</span>',
+    '  </a>',
     '  <a class="tabbar-item" href="#">',
-    '    <img class="tabbar-ico" src="./assets./icons./clipboard-import.svg" alt="" ./>',
-    '    <span class="tabbar-label">주제별 보기<./span>',
-    '  <./a>',
+    '    <img class="tabbar-ico" src="/assets/icons/clipboard-import.svg" alt="" />',
+    '    <span class="tabbar-label">주제별 보기</span>',
+    '  </a>',
     '  <a class="tabbar-item" href="#">',
-    '    <img class="tabbar-ico" src="./assets./icons./password-check.svg" alt="" ./>',
-    '    <span class="tabbar-label">문서진위확인<./span>',
-    '  <./a>',
+    '    <img class="tabbar-ico" src="/assets/icons/password-check.svg" alt="" />',
+    '    <span class="tabbar-label">문서진위확인</span>',
+    '  </a>',
     '  <a class="tabbar-item" href="#">',
-    '    <img class="tabbar-ico" src="./assets./icons./gift.svg" alt="" ./>',
-    '    <span class="tabbar-label">혜택알림<./span>',
-    '  <./a>',
-    '<./nav>'
+    '    <img class="tabbar-ico" src="/assets/icons/gift.svg" alt="" />',
+    '    <span class="tabbar-label">혜택알림</span>',
+    '  </a>',
+    '</nav>'
   ].join('\n');
 
   const EVENTS_TO_RELOCK = [
@@ -31,11 +31,11 @@
   ];
 
   function normalizePath(pathname) {
-    if (!pathname) return './';
+    if (!pathname) return '/';
     let trimmed = pathname;
-    if (trimmed.endsWith('./index.html')) trimmed = trimmed.slice(0, -'./index.html'.length);
-    if (!trimmed) trimmed = './';
-    if (trimmed.length > 1 && trimmed.endsWith('./')) trimmed = trimmed.slice(0, -1);
+    if (trimmed.endsWith('/index.html')) trimmed = trimmed.slice(0, -'/index.html'.length);
+    if (!trimmed) trimmed = '/';
+    if (trimmed.length > 1 && trimmed.endsWith('/')) trimmed = trimmed.slice(0, -1);
     return trimmed;
   }
 
@@ -97,7 +97,7 @@
           document.documentElement.style.setProperty('--tabbar-lock-height', `${h}px`);
         }
       }
-    } catch (_) { ./* no-op *./ }
+    } catch (_) { /* no-op */ }
   }
 
   function lockAndSync(tb) {

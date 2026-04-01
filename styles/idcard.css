@@ -1,18 +1,18 @@
 :root {
     --bg: #eef2f7;
-    ./* 전체 배경 *./
+    /* 전체 배경 */
     --card: #ffffff;
-    ./* 카드 배경 *./
+    /* 카드 배경 */
     --ink: #000;
-    ./* 본문 글자 *./
+    /* 본문 글자 */
     --muted: #666;
-    ./* 보조 글자 *./
+    /* 보조 글자 */
     --line: #e6e6e6;
-    ./* 경계선 *./
+    /* 경계선 */
     --primary: #1E4DD8;
-    ./* 포인트(파랑) *./
+    /* 포인트(파랑) */
     --progress: #1E4DD8;
-    ./* 카운트다운 바 색 *./
+    /* 카운트다운 바 색 */
     --hdr-h: 45px;
     --ticker-h: 55px;
 }
@@ -25,16 +25,16 @@ body {
     color: var(--ink);
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, sans-serif;
 
-    ./* ✅ PWA(특히 Android)에서 글자./레이아웃이 자동 축소되는 걸 방지 *./
+    /* ✅ PWA(특히 Android)에서 글자/레이아웃이 자동 축소되는 걸 방지 */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 
-    ./* ✅ 주소창./툴바 변화에도 안정적인 뷰포트 *./
+    /* ✅ 주소창/툴바 변화에도 안정적인 뷰포트 */
     height: 100dvh;
     overflow: hidden;
 }
 
-./* 상단 헤더 *./
+/* 상단 헤더 */
 .header {
     height: var(--hdr-h);
     display: flex;
@@ -96,7 +96,7 @@ body {
     transform: scale(1) translate(-1px, 0px)
 }
 
-./* 레이아웃 *./
+/* 레이아웃 */
 .wrap {
     display: flex;
     flex-direction: column;
@@ -126,20 +126,20 @@ body {
     flex-direction: column;
     padding: 12px 14px 0 14px;
     box-sizing: border-box;
-    ./* ✅ 화면 높이에 따라 자연스럽게만 커지고, 끝까지 억지로 늘어나지 않게 *./
+    /* ✅ 화면 높이에 따라 자연스럽게만 커지고, 끝까지 억지로 늘어나지 않게 */
     min-height: clamp(520px, 72dvh, 680px);
     max-height: 100%;
 }
 
 #cardDetail.card {
-    ./* ✅ 상세 카드: 기기 화면 높이에 맞게 유연 *./
+    /* ✅ 상세 카드: 기기 화면 높이에 맞게 유연 */
     min-height: clamp(520px, 74dvh, 700px);
     max-height: 100%;
-    position: relative; ./* Foot info absolute anchor *./
+    position: relative; /* Foot info absolute anchor */
 }
 
 
-./* 프로필 영역 *./
+/* 프로필 영역 */
 .profile {
     margin: 7px auto 0;
     width: 161px;
@@ -164,7 +164,7 @@ body {
     font-size: 12px
 }
 
-./* 상단 정보 + QR *./
+/* 상단 정보 + QR */
 .top-row {
     display: flex;
     gap: 12px;
@@ -223,7 +223,7 @@ body {
     border-color: #111 transparent #111 transparent;
 }
 
-./* 카운트다운 *./
+/* 카운트다운 */
 .count {
     margin-top: 50px
 }
@@ -232,9 +232,9 @@ body {
     position: relative;
     height: 3.5px;
     width: auto;
-    ./* 카드 padding-left:1px, padding-right:16px →
+    /* 카드 padding-left:1px, padding-right:16px →
      오른쪽 총 여백(16 + 16) = 32px에 맞춰
-     왼쪽은 32 - 1 = 31px 로 보정 *./
+     왼쪽은 32 - 1 = 31px 로 보정 */
     margin: 0 13px;
     border-radius: 20px;
 }
@@ -242,7 +242,7 @@ body {
 .bar-track {
     position: absolute;
     inset: 0;
-    ./* 부모(.bar)의 전체 영역을 채움 *./
+    /* 부모(.bar)의 전체 영역을 채움 */
     background: #ddd;
     border-radius: 999px;
 }
@@ -252,11 +252,11 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    ./* 오른쪽 기준 → 오른쪽→왼쪽으로 줄어듦 *./
+    /* 오른쪽 기준 → 오른쪽→왼쪽으로 줄어듦 */
     background: var(--progress);
     border-radius: 999px;
     width: 100%;
-    ./* 초기 100% *./
+    /* 초기 100% */
 
 }
 
@@ -282,7 +282,7 @@ body {
     transform: translateX(15.1px);
 }
 
-./* 안내 & 시각 *./
+/* 안내 & 시각 */
 .hint {
     margin-top: 10px;
     text-align: center;
@@ -301,7 +301,7 @@ body {
     margin-top: 4px
 }
 
-./* 하단 버튼 (카드 하단 꽉 차게) *./
+/* 하단 버튼 (카드 하단 꽉 차게) */
 .cta{
   margin-top:auto;
   padding-top: clamp(14px, 2.2vh, 20px);
@@ -314,7 +314,7 @@ body {
 
 .cta button{
   width:100%;
-  height: clamp(56px, 7.2vh, 66px); ./* ✅ 화면비율에 따라 자동 *./
+  height: clamp(56px, 7.2vh, 66px); /* ✅ 화면비율에 따라 자동 */
   background: var(--primary);
   color:#fff;
   border:0;
@@ -324,7 +324,7 @@ body {
   display:block;
 }
 
-./* 상세 카드(#cardDetail)에서는 detail 블록을 표시 *./
+/* 상세 카드(#cardDetail)에서는 detail 블록을 표시 */
 #cardDetail .detail {
     display: flex;
     flex-direction: column;
@@ -343,7 +343,7 @@ body {
 
 
 
-./* 상세 헤더: 이름(지역) ⟷ 스위치 한 줄(space-between) *./
+/* 상세 헤더: 이름(지역) ⟷ 스위치 한 줄(space-between) */
 .detail-head {
     display: flex;
     align-items: flex-start;
@@ -351,7 +351,7 @@ body {
     gap: 1px;
     margin-top: 5px;
     padding: 0 0px;
-    ./* 카드 내 좌우 여백과 라인 맞춤 *./
+    /* 카드 내 좌우 여백과 라인 맞춤 */
     transform: translate(0px, 0px);
 }
 
@@ -362,23 +362,23 @@ body {
     transform: none;
 }
 
-./* 이름 쪽이 남는 공간을 먹도록 *./
+/* 이름 쪽이 남는 공간을 먹도록 */
 .detail-head .who {
     flex: 1 1 auto;
     letter-spacing: -1px;
 }
 
-./* 상세뷰에서 지역 줄은 숨김(혹시 남아있는 경우 대비) *./
+/* 상세뷰에서 지역 줄은 숨김(혹시 남아있는 경우 대비) */
 .detail-head .who .region {
     display: none;
 }
 
 .detail-head .switch {
     margin-top: 4px;
-    ./* 이름 상단과 수평 맞춤 *./
+    /* 이름 상단과 수평 맞춤 */
 }
 
-./* 이전 레이아웃 잔재는 감춤 *./
+/* 이전 레이아웃 잔재는 감춤 */
 .name-row {
     display: none;
 }
@@ -445,7 +445,7 @@ body {
     top: -2px
 }
 
-./* 스위치(네모 네모 스타일) *./
+/* 스위치(네모 네모 스타일) */
 .switch {
     --track-w: 72px;
     --track-h: 30px;
@@ -468,11 +468,11 @@ body {
 .switch .track {
     position: absolute;
     inset: 0;
-    ./* 트랙이 스위치 전체 크기를 채우도록 *./
+    /* 트랙이 스위치 전체 크기를 채우도록 */
     background: #e9e9e9;
-    ./* OFF(비활성) 기본 배경 *./
+    /* OFF(비활성) 기본 배경 */
     border-radius: var(--r);
-    ./* 둥근 사각 *./
+    /* 둥근 사각 */
     transition: background 0s linear 0s, box-shadow .12s ease-in-out 0s;
 }
 
@@ -482,10 +482,10 @@ body {
 
 .switch input:checked+.track {
     background: #000;
-    ./* ON 상태: 검정 *./
+    /* ON 상태: 검정 */
     box-shadow: inset 0 0 0 1px #000;
     transition: background .12s linear .12s, box-shadow .12s ease-in-out .12s;
-    ./* 노브 이동 후 색 보이게 *./
+    /* 노브 이동 후 색 보이게 */
 }
 
 .switch .knob {
@@ -504,7 +504,7 @@ body {
     transform: translateX(calc(var(--track-w) - var(--track-h)))
 }
 
-./* 하단 마키 (오→왼) *./
+/* 하단 마키 (오→왼) */
 .ticker-wrap {
     position: fixed;
     bottom: 0px;
@@ -541,10 +541,10 @@ body {
         transform: translateX(-50%);
     }
 
-    ./* 오른쪽→왼쪽 이동 *./
+    /* 오른쪽→왼쪽 이동 */
 }
 
-./* 유틸 *./
+/* 유틸 */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -554,7 +554,7 @@ body {
     white-space: nowrap;
 }
 
-./* Utility classes for visibility *./
+/* Utility classes for visibility */
 .is-hidden {
     display: none !important;
 }
@@ -563,12 +563,12 @@ body {
     display: block;
 }
 
-./* ✅ card 에서 is-visible이 display:block으로 flex를 깨는 문제 방지 *./
+/* ✅ card 에서 is-visible이 display:block으로 flex를 깨는 문제 방지 */
 .card.is-visible{
   display: flex;
 }
 
-./* ===== 모달 기본 ===== *./
+/* ===== 모달 기본 ===== */
 .modal[aria-hidden="true"] {
     display: none;
 }
@@ -584,7 +584,7 @@ body {
 }
 
 .modal.modal--pin{
-  ./* 헤더 아래에 bg(회색) 띠가 아주 살짝 보이도록 *./
+  /* 헤더 아래에 bg(회색) 띠가 아주 살짝 보이도록 */
   top: calc(var(--hdr-h) + 8px);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -616,7 +616,7 @@ body {
   margin-top: 0;
 }
 
-./* iPhone(iOS Safari./PWA)에서만 살짝 더 아래로 내리기 *./
+/* iPhone(iOS Safari/PWA)에서만 살짝 더 아래로 내리기 */
 @supports (-webkit-touch-callout: none) {
   .modal__dialog--pin{
     margin-top: 4px;
@@ -673,13 +673,13 @@ body {
   margin-top: clamp(18px, 4vh, 28px);
 }
 
-./* PIN 입력 점 스타일 *./
+/* PIN 입력 점 스타일 */
 
 .pin-display{
   display:flex;
   justify-content:center;
   align-items:center;
-  width: calc(100% - 20px); ./* 좌우 10px *./
+  width: calc(100% - 20px); /* 좌우 10px */
   margin-left: auto;
   margin-right: auto;
   font-size:14px;
@@ -690,7 +690,7 @@ body {
   align-self: center;
 }
 
-./* PIN 입력 점 스타일 *./
+/* PIN 입력 점 스타일 */
 .pin-dot {
     flex: 1;
     height: 2px;
@@ -722,7 +722,7 @@ body {
 }
 
 .pin-grid{
-  margin-top:auto;                ./* 핵심: 남은 공간 밀고 바닥으로 *./
+  margin-top:auto;                /* 핵심: 남은 공간 밀고 바닥으로 */
   padding:0;
   padding-top: 6px;
   border-top:1px solid #ddd;
@@ -765,7 +765,7 @@ body {
 
 .pin-key--spacer {
     background: #fff;
-    ./* divider 유지 (위./옆 칸과 같은 선) *./
+    /* divider 유지 (위/옆 칸과 같은 선) */
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     cursor: default;
@@ -788,7 +788,7 @@ body {
     pointer-events: none;
 }
 
-./* 마스크 상태에서 주소 숨김 *./
+/* 마스크 상태에서 주소 숨김 */
 .mode-detail .addr {
     display: block;
 }
@@ -797,13 +797,13 @@ body {
     display: none;
 }
 
-./* 좌하단 플로팅 원형 버튼 (상세보기 종료) *./
+/* 좌하단 플로팅 원형 버튼 (상세보기 종료) */
 .fab-left {
     position: fixed;
     left: 29px;
-    ./* bottom: 90px; 삭제 *./
+    /* bottom: 90px; 삭제 */
     top: auto;
-    ./* 하단 마키(55px) 위에 뜨도록 여유 *./
+    /* 하단 마키(55px) 위에 뜨도록 여유 */
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -813,7 +813,7 @@ body {
     display: grid;
     place-items: center;
     z-index: 10001;
-    ./* 마키(9999)보다 위 *./
+    /* 마키(9999)보다 위 */
 }
 
 .fab-left img {
@@ -822,7 +822,7 @@ body {
     display: block;
 }
 
-./* ===== 전체메뉴 사이드바 ===== *./
+/* ===== 전체메뉴 사이드바 ===== */
 .side-menu-overlay {
     position: fixed;
     inset: 0;
@@ -900,19 +900,19 @@ body {
     background: #f5f5f5;
 }
 
-./* 오버레이: 정중앙 배치 *./
+/* 오버레이: 정중앙 배치 */
 .precheck-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, .35);
     display: none;
-    ./* 기본은 숨김 *./
+    /* 기본은 숨김 */
     align-items: center;
-    ./* 수직 중앙 *./
+    /* 수직 중앙 */
     justify-content: center;
-    ./* 수평 중앙 *./
+    /* 수평 중앙 */
     padding: 24px;
-    ./* 가장자리 여백(모바일 안전영역 대비) *./
+    /* 가장자리 여백(모바일 안전영역 대비) */
     z-index: 1000;
 }
 
@@ -920,47 +920,47 @@ body {
     display: flex;
 }
 
-./* ===== Precheck Overlay (scaled down 0.9×) ===== *./
+/* ===== Precheck Overlay (scaled down 0.9×) ===== */
 .precheck-card {
     width: min(92vw, 279px);
-    ./* 310 × 0.9 *./
+    /* 310 × 0.9 */
     background: #fff;
     border-radius: 13px;
-    ./* 14 × 0.9 ≈ 12.6 *./
+    /* 14 × 0.9 ≈ 12.6 */
     box-shadow: 0 14px 36px rgba(0, 0, 0, .2);
-    ./* 0 16px 40px × 0.9 *./
+    /* 0 16px 40px × 0.9 */
     overflow: hidden;
     position: relative;
     top: -17px;
-    ./* keep the lifted position *./
+    /* keep the lifted position */
 }
 
 .pre-head {
     display: flex;
     align-items: center;
     gap: 7px;
-    ./* 8 × 0.9 *./
+    /* 8 × 0.9 */
     padding: 9px 11px 7px;
-    ./* 10 12 8 × 0.9 *./
+    /* 10 12 8 × 0.9 */
 }
 
 .pre-flag {
     width: 27px;
-    ./* 30 × 0.9 *./
+    /* 30 × 0.9 */
     height: 27px;
     display: block;
 }
 
 .pre-title {
     font-size: 15.3px;
-    ./* 17 × 0.9 *./
+    /* 17 × 0.9 */
     font-weight: 600;
     color: #111;
     margin: 0;
     line-height: 1.1;
 }
 
-./* separator line under the title *./
+/* separator line under the title */
 .pre-sep {
     height: 0.5px;
     background: rgba(0, 0, 0, .25);
@@ -968,14 +968,14 @@ body {
 
 .precheck-text {
     padding: 16px 14px 12px;
-    ./* 18 15 14 × 0.9 *./
+    /* 18 15 14 × 0.9 */
     text-align: center;
     font-size: 14.4px;
-    ./* 16 × 0.9 *./
+    /* 16 × 0.9 */
     line-height: 1.5;
-    ./* ~1.44 *./
+    /* ~1.44 */
     margin: 0 0 7px;
-    ./* 0 0 8 × 0.9 *./
+    /* 0 0 8 × 0.9 */
 }
 
 .precheck-text .emph {
@@ -986,17 +986,17 @@ body {
 
 .precheck-law {
     font-size: 14.4px;
-    ./* 16 × 0.9 *./
+    /* 16 × 0.9 */
     color: #000;
     margin: -12px 0 13px;
-    ./* -13 0 15 × 0.9 *./
+    /* -13 0 15 × 0.9 */
     text-align: center;
     font-weight: 600;
 }
 
 .precheck-law .mark {
     font-size: 14.4px;
-    ./* 16 × 0.9 *./
+    /* 16 × 0.9 */
     font-weight: 400;
     color: #000;
 }
@@ -1005,12 +1005,12 @@ body {
     display: block;
     width: 100%;
     padding: 15px 0;
-    ./* 17 × 0.9 *./
+    /* 17 × 0.9 */
     background: #fff;
     border: 0;
     cursor: pointer;
     color: #2563eb;
     font-weight: 600;
     font-size: 14.4px;
-    ./* 16 × 0.9 *./
+    /* 16 × 0.9 */
 }
