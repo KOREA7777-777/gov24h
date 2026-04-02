@@ -311,7 +311,7 @@ async function registerToSupabase({ userId, name, password, rrnFront, rrnBack, a
     location.href = './beforelogin.html';
   } catch (err) {
     console.error('[registerToSupabase] error:', err);
-    alert('서버 오류가 발생했습니다.');
+    alert(err.message || '서버 오류');
   }
 }
 btnSubmit?.addEventListener('click', async (e) => {
