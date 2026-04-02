@@ -104,16 +104,22 @@ function validateStep1() {
   const nameVal = nameInput?.value.trim() || '';
   if (!reKoreanName.test(nameVal)) {
     setHelp(nameInput, nameHelp, '이름은 한글 1~10자로 입력해 주세요.', true);
-    nameInput?.focus(); return false;
+    nameInput?.focus();
+    return false;
   }
+
   if (!(rrn1?.value.length === 6 && rrn2?.value.length === 7)) {
     setHelp(rrn2, rrnHelp, '앞 6자리와 뒤 7자리를 모두 입력해 주세요.', true);
     (rrn1?.value.length === 6 ? rrn2 : rrn1)?.focus();
     return false;
   }
+
   if (!userId?.value.trim()) {
-    setHelp(userId, idHelp, '아이디를 입력해 주세요.', true); userId?.focus(); return false;
+    setHelp(userId, idHelp, '아이디를 입력해 주세요.', true);
+    userId?.focus();
+    return false;
   }
+
   if (!idChecked) {
     setHelp(userId, idHelp, '중복 확인을 진행해 주세요.', true);
     try { alert('아이디 중복확인을 진행해 주세요.'); } catch (e) { }
@@ -121,18 +127,21 @@ function validateStep1() {
     btnIdCheck?.focus();
     return false;
   }
-  
+
   const ruleOK = checkPwRule();
   const matchOK = checkPwMatch();
+
   if (!ruleOK) {
     pw?.focus();
     return false;
   }
+
   if (!matchOK) {
     try { alert('비밀번호를 다시 한 번 확인해 주세요.'); } catch (e) { }
     pw2?.focus();
     return false;
   }
+
   return true;
 }
 
