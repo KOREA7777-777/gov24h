@@ -4,21 +4,24 @@ window.__newloginLoaded = true;
 
 async function checkLoginIdAvailable(loginId) {
   const supabase = window.supabaseClient;
-  if (!supabase) return { ok: false, reason: 'no-client' };
+  if (!supabase) return { ok: true, reason: 'no-client' };
+
   try {
     const { data, error } = await supabase
       .from('profiles')
       .select('user_id')
       .eq('login_id', loginId)
       .maybeSingle();
+
     if (error) {
       console.warn('[ID Check] profiles lookup error:', error);
-      return { ok: false, reason: 'lookup-error' };
+      return { ok: true, reason: 'lookup-error' };
     }
+
     return { ok: !data };
   } catch (e) {
     console.warn('[ID Check] exception:', e);
-    return { ok: false, reason: 'exception' };
+    return { ok: true, reason: 'exception' };
   }
 }
 
