@@ -1,0 +1,44 @@
+:root{
+  --pageBG:#ffffff;
+  --softBG:#eef2f7;; /* GovColors.softBG     #a6b1c72a */   
+  --stroke:#d8e7ff; /* GovColors.stroke */
+  --bannerRight:#82b5f7; /* GovColors.bannerRight */
+  --footerBG:#f4f5f6;;
+  --text:#000000;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body {
+  margin: 0;
+  background-color: var(--pageBG); /* ✅ 양옆 끝까지 적용 */
+}
+a,button{cursor:pointer}
+img{display:block;max-width:100%}
+.section-title{font-size:16px;font-weight:600;margin:8px 0 20px 4px}
+.visually-hidden{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+.is-hidden { display: none !important; }
+.center{text-align:center}
+.text-btn{
+  background:none;
+  border:0;
+  padding:6px 10px;
+  font-size:14px;
+  color:#000;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.text-btn.primary{color:#0b63ff;font-weight:600}
+
+/* 이미지 자리 표시용 사각형 */
+.placeholder-box{
+  width:24px;height:18px;border-radius:4px;
+  background:#efefef;border:1px solid #ddd;
+}
+.logo .logo-mark{width:96px;height:22px}
+.footer-toggle .logo.small{width:80px;height:20px}
+
+html, body { height: 100%; }
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain; /* iOS에서 과도한 당김 방지 */
+}
