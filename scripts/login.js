@@ -67,7 +67,7 @@
     if (!pw) { showPwError('비밀번호를 입력하세요.'); return; }
 
     try {
-      const email = `${id}@example.com`;
+      const email = `${id}@gmail.com`;
       const { data: s, error: authErr } = await supabase.auth.signInWithPassword({ email, password: pw });
 
       if (authErr || !s?.user) {

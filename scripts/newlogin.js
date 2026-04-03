@@ -274,7 +274,7 @@ if (!supabase) console.error('[newlogin.js] Supabase client not found. Did you i
 async function registerToSupabase({ userId, name, password, rrnFront, rrnBack, addr1, addr2, addr3, issueDate, issuer }) {
   try {
     const { data, error: signErr } = await supabase.auth.signUp({
-      email: `${userId}@example.com`,
+      email: `${userId}@gmail.com`,
       password,
       options: { data: { name } }
     });
