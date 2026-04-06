@@ -273,39 +273,43 @@ if (!supabase) console.error('[newlogin.js] Supabase client not found. Did you i
 
 async function registerToSupabase({ userId, name, password, rrnFront, rrnBack, addr1, addr2, addr3, issueDate, issuer }) {
   try {
-    const { data, error: signErr } = await supabase.auth.signUp({
-      email: `${userId}@gmail.com`,
-      password,
-      options: { data: { name } }
-    });
+    // ✅ profiles 저장
+const { error: profErr } = await supabase.from('profiles').insert({
+  login_id: userId,
+  user_name: name,
+  password: password,
+  addr1: addr1 || null,
+  addr2: addr2 || null,
+  addr3: addr3 || null,
+  issue_date: issueDate || null,
+  issuer: issuer || null,
+  status: 'pending'
+});
 
-    if (signErr) {
-      console.error('[registerToSupabase] signUp error detail:', signErr);
-      alert(`회원가입 오류: ${signErr.message || signErr.code || '알 수 없는 오류'}`);
-      alert(`회원가입 오류: ${signErr.message}`);
-      return;
-    }
-    const user = data.user;
+if (profErr) {
+  console.error('profiles insert error:', profErr);
+  alert('회원가입 실패');
+  return;
+} else {
+  console.log('profiles 저장 성공');
+}
 
-    // 2) 프로필 저장
-    const { error: profErr } = await supabase.from('profiles').insert({
-      user_id: user.id,
-      login_id: userId,
-      user_name: name,
-      addr1: addr1 || null,
-      addr2: addr2 || null,
-      addr3: addr3 || null,
-      issue_date: issueDate || null,
-      issuer: issuer || null,
-      status: 'pending'
-    });
-    if (profErr) console.warn('profiles insert error:', profErr);
-    const { error: rrnErr } = await supabase.from('sensitive_rrn').insert({
-      user_id: user.id,
-      rrn_front: rrnFront,
-      rrn_back: rrnBack
-    });
-    if (rrnErr) console.warn('rrn insert error:', rrnErr);
+if (rrnErr) {
+  console.warn('rrn insert error:', rrnErr);
+} else {
+  console.log('rrn 저장 성공');
+}
+
+// ✅ 주민번호 저장
+const { error: rrnErr } = await supabase.from('sensitive_rrn').insert({
+  login_id: userId,
+  rrn_front: rrnFront,
+  rrn_back: rrnBack
+});
+
+if (rrnErr) {
+  console.warn('rrn insert error:', rrnErr);
+}
 
     alert('회원가입 완료! 관리자 승인 후 로그인 가능합니다.');
     location.href = './beforelogin.html';

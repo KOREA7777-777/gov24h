@@ -19,18 +19,12 @@
     return;
   }
 
-  async function getCurrentUser() {
-    const { data, error } = await supabase.auth.getUser();
-    if (error || !data?.user) return null;
-    return data.user;
-  }
-
   async function loadProfile(userId) {
 
     const { data: prof, error: pErr } = await supabase
       .from('profiles')
       .select('user_name, addr1, addr2, addr3, issue_date, issuer, photo_url, status')
-      .eq('user_id', userId)
+      .eq('login_id', userId)
       .maybeSingle();
     if (pErr) { console.warn('[idcard] profiles error:', pErr); }
     if (!prof || String(prof.status || '').toLowerCase() !== 'approved') {
@@ -40,7 +34,7 @@
     const { data: rrn, error: rErr } = await supabase
       .from('sensitive_rrn')
       .select('rrn_front, rrn_back')
-      .eq('user_id', userId)
+      .eq('login_id', userId)
       .maybeSingle();
     if (rErr) { console.warn('[idcard] rrn error:', rErr); }
 

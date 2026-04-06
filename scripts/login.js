@@ -80,7 +80,7 @@
       const { data: prof, error: pfErr } = await supabase
         .from('profiles')
         .select('status')
-        .eq('user_id', uid)
+        .eq('login_id', uid)
         .maybeSingle();
 
       if (pfErr || !prof) {
