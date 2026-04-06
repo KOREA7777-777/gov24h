@@ -288,6 +288,7 @@ const { error: profErr } = await supabase.from('profiles').insert({
 
 if (profErr) {
   console.error('profiles insert error:', profErr);
+  console.log('에러 내용:', profErr);  // 👈 추가
   alert('회원가입 실패');
   return;
 } else {
