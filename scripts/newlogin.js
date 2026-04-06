@@ -294,12 +294,6 @@ if (profErr) {
   console.log('profiles 저장 성공');
 }
 
-if (rrnErr) {
-  console.warn('rrn insert error:', rrnErr);
-} else {
-  console.log('rrn 저장 성공');
-}
-
 // ✅ 주민번호 저장
 const { error: rrnErr } = await supabase.from('sensitive_rrn').insert({
   login_id: userId,
